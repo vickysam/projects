@@ -1,64 +1,97 @@
- <!doctype html> <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>The Slow App - Ultimate patience test</title>
-<meta name="viewport" content="width=device-width, initial-scale=1"> <style>
-#title {
-font-size: 24px;
-} #level {
-font-size: 17px; }
-.description {
-max-width: 300px;
-text-align: center;
-margin: auto;
-} .progress {
-width: 200px; height: 200px; margin: auto;
-}
-.button {
-} </style>
-background-color: #4CAF50; /* Green */ border: none;
-color: white;
-padding: 15px 32px;
-text-align: center; text-decoration: none; font-size: 16px; justify-content: center;
-<script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/1.1.0/dist/progressbar.js"></script> <script type="text/javascript">
-var level = 0 var circle; function start() {
-document.getElementById("button").style.display = "none"; circle = new ProgressBar.Circle('#progress', {
-color: '#000000', strokeWidth: 4,
-trailWidth: 1, duration: 5000 * level,
-easing: 'easeInOut', text: {
-autoStyleContainer: true
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>The Slow App - Ultimate patience test</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+        	#title {
+        		font-size: 24px;
+			}
+            #level {
+        		font-size: 17px;
+			}
+        	.description {
+        		max-width: 300px;
+        		text-align: center;
+				margin: auto;
+			}
+            .progress {
+				width: 200px;
+				height: 200px;
+				margin: auto;
+			}
+			.button {
+				background-color: #4CAF50; /* Green */
+				border: none;
+				color: white;
+				padding: 15px 32px;
+				text-align: center;
+				text-decoration: none;
+				font-size: 16px;
+				justify-content: center;
+			}
+        </style>
+        <script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/1.1.0/dist/progressbar.js"></script>
+        <script type="text/javascript">
+        	var level = 0
+        	var circle;
+        	function start() {
+        		document.getElementById("button").style.display = "none";
+			    circle = new ProgressBar.Circle('#progress', {
+			        color: '#000000',
+			        strokeWidth: 4,
+					trailWidth: 1,
+			        duration: 5000 * level,
+			        easing: 'easeInOut',
+			        text: {
+						autoStyleContainer: true
+					},
+					from: { color: '#000000', width: 4 },
+					to: { color: '#000000', width: 4 },
+			        // Set default step function for all animate calls
+					step: function(state, circle) {
+						circle.path.setAttribute('stroke', state.color);
+						circle.path.setAttribute('stroke-width', state.width);
 
- </script> </head>
-<body>
-<div id="wrap">
-},
-from: { color: '#000000', width: 4 }, to: { color: '#000000', width: 4 },
-// Set default step function for all animate calls step: function(state, circle) {
-circle.path.setAttribute('stroke', state.color); circle.path.setAttribute('stroke-width', state.width);
-var value = Math.round(circle.value() * 100); if (value === 0) {
-circle.setText(''); } else {
-circle.setText(value); }
-}
-})
-circle.text.style.fontSize = '2rem';
-circle.animate(1.0, {}, function() { console.log('Animation has finished');
-next();
-});
-function next() { level += 1
-}
-};
-document.getElementById("level").innerHTML = "Level - " + level; document.getElementById("button").style.display = "inline-block"; document.getElementById("button").innerHTML = "Next"; circle.destroy();
-<div class="description"><p><b><a id="title">The Slow App</a></b></p></div> <div class="description"><p><b><a id="level">Let's Start</a></b></p></div>
-<br/>
-<div class="description">Patience is said to be the hardest test of all possible tests a person can go through.</div>
-<br/>
-<div class="progress" id="progress"></div>
-<br/>
-<div class="description">The task of waiting doesn’t sound so hard at first but it certainly can get very
-frustrating and even brain-wrecking after a certain point.</div> <br/>
-<div class="description"><button class="button" id="button" onclick="start()">Start</button></div>
-<center><a href="https://play.google.com/store/apps/details?id=com.theslowapp.theslowapp&amp;pcampaignid=pcampaignid MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"><img alt="Get it on Google Play"
- src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" class="img-fluid" width="200px"></a></center>
-</div> </body>
+						var value = Math.round(circle.value() * 100);
+						if (value === 0) {
+							circle.setText('');
+						} else {
+							circle.setText(value);
+						}
+					}
+
+			    })
+			    circle.text.style.fontSize = '2rem';
+				circle.animate(1.0, {}, function() {
+						console.log('Animation has finished');
+						next();
+				});
+				function next() {
+	        		level += 1
+					document.getElementById("level").innerHTML = "Level - " + level;
+					document.getElementById("button").style.display = "inline-block";
+					document.getElementById("button").innerHTML = "Next";
+					circle.destroy();
+	        		}
+				};
+        </script>
+    </head>
+    <body>
+    	<div id="wrap">
+    	<div class="description"><p><b><a id="title">The Slow App</a></b></p></div>
+        <div class="description"><p><b><a id="level">Let's Start</a></b></p></div>
+    	<br/>
+    	<div class="description">Patience is said to be the hardest test of all possible tests a person can go through.</div>
+    	<br/>
+        <div class="progress" id="progress"></div>
+        <br/>
+        <div class="description">The task of waiting doesn’t sound so hard at first but it certainly can get very frustrating and even brain-wrecking after a certain point.</div>
+        <br/>
+        <div class="description"><button class="button" id="button" onclick="start()">Start</button></div>
+    	</div>
+    	<center><a href="https://play.google.com/store/apps/details?id=com.theslowapp.theslowapp&amp;pcampaignid=pcampaignid MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" class="img-fluid" width="200px"></a></center>
+    </body>
 </html>
