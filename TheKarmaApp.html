@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>The Karma App</title>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/space10-community/conversational-form@1.0.1/dist/conversational-form.min.js" crossorigin></script>
+		<script type="text/javascript">
+			window.onload = function() {
+			var flowCallback = function(dto, success, error) {
+				window.incrementedValue++;
+					window.ConversationalForm.addTags([
+					{
+						tag: "input",
+						type: "text",
+						name: "ask",
+						id: "ask",
+						"cf-questions": dto.text,
+						"cf-input-placeholder": "Type here"
+					}
+				]);
+				success();
+			};
+			var conversationalForm = window.cf.ConversationalForm.startTheConversation({
+				formEl: document.getElementById("form"),
+				context: document.getElementById("cf-context"),
+				flowStepCallback: flowCallback,
+				submitCallback: function() {
+					conversationalForm.addRobotChatResponse("Alright, you are done. Here is the Result");
+					var formDataSerialized = conversationalForm.getFormData(true);
+					console.log("Formdata, serialized:", formDataSerialized);
+					conversationalForm.addRobotChatResponse("Check the dev console for FormatData output." + formDataSerialized.states + formDataSerialized.districts);
+					}
+				});
+			};
+		</script>
+		<style type="text/css">
+		#form {
+			height: 0px;
+			overflow: hidden;
+		}
+		#cf-context {
+			width: 100vw;
+			height: 60vh;
+		}
+		</style>
+	</head>
+	<body>
+		<br/>
+		<div>
+			<h1 style="font-weight: 150;text-align: center;font-family: 'Roboto', sans-serif;"><b>The Karma App</b></h1>
+			<h4 style="font-weight: 100;text-align: center;font-family: 'Roboto', sans-serif;">From Karma nobody can hide, so be sure to be on a good side.</h4>
+		</div>
+		<br/>
+		<div>
+			<form id="form" cf-form>
+				<input type="text" name="ask" id="ask" cf-questions="Karma, && Everything you do comes back to you! && Would you like to test it?" cf-input-placeholder="Type here"/>
+				<input type="text" name="ask" id="ask" cf-questions="Karma, && Everything you do comes back to you! && Would you like to test it?" cf-input-placeholder="Type here"/>
+			</form>
+			<div id="cf-context" role="cf-context" cf-context></div>
+		</div>
+		<br/>
+		<div>
+			<h4 style="font-weight: 100;text-align: center;font-family: 'Roboto', sans-serif;">Inspired from</h4>
+			<h4 style="font-weight: 100;text-align: center;font-family: 'Roboto', sans-serif;">The Karma priniciple</h4>
+		</div>
+	</body>
+</html>
