@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>The Karma App</title>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.6.4/lottie_svg.min.js"></script>
+		<script type="text/javascript">
+			/* Play an animation on each click */
+			window.onload = function() {
+			    let iconSkipForward = document.querySelector('.bodymovinanim');
+
+			    let animationSkipForward = bodymovin.loadAnimation({
+			            container: iconSkipForward,
+			            renderer: 'svg',
+			            loop: false,
+			            autoplay: false,
+			            path: "https://assets5.lottiefiles.com/packages/lf20_X7fC2V.json"
+			    });
+			      animationSkipForward.playSegments([0,60], false);
+			      iconSkipForward.addEventListener('click', function() {
+			      animationSkipForward.playSegments([0,60], false);
+			    });
+			  };
+		</script>
+		<style type="text/css">
+			body {
+			  font-family: Roboto;
+			  background: #fff;
+			  display: flex;
+			  flex-direction: column;
+			  text-align: center;
+			  align-items: center;
+			}
+
+			.bodymovinanim {
+			  width: 90%;
+			  max-width: 300px;
+			  margin-top: 10px;
+			  cursor: pointer;
+			}
+
+			p {
+			  font-size: 12px;
+			  text-transform: uppercase;
+			  opacity: 0.6;
+			  letter-spacing: 2px;
+			}
+		</style>
+	</head>
+	<body>
+		<br/>
+		<div>
+			<h1 style="font-weight: 150;text-align: center;font-family: 'Roboto', sans-serif;"><b>The Useless App</b></h1>
+			<h4 style="font-weight: 100;text-align: center;font-family: 'Roboto', sans-serif;">A Useless App which has a function but its direct purpose is unknown.</h4>
+		</div>
+		<br/>
+		<div class="bodymovinanim"></div>
+		<p>Click Me!!!</p>
+		<br/>
+		<div>
+			<h4 style="font-weight: 100;text-align: center;font-family: 'Roboto', sans-serif;">Inspired from</h4>
+			<h4 style="font-weight: 100;text-align: center;font-family: 'Roboto', sans-serif;">The Useless Machine</h4>
+		</div>
+        <br/>
+        <hr/>
+        <br/>
+        <h6 style="text-align: center;font-family: 'Roboto', sans-serif;"><b> PRIVACY POLICY </b> : We don't store your data, period.</h6>
+        <h6 style="text-align: center;font-family: 'Roboto', sans-serif;">Made with ❤️ in India!</h6>
+        <h6 style="text-align: center;font-family: 'Roboto', sans-serif;"><a href="index.html">Scotch and Max</a></h6> 
+	</body>
+</html>
