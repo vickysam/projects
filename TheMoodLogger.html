@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mood Logger</title>
+
+    <script type="text/javascript">
+    	  document.addEventListener("DOMContentLoaded", () => {
+		  let availableSpace = 1;
+		  createSquares();
+
+		  initHelpModal();
+		  initStatsModal();
+
+		  let guessedWords = [];
+
+		  const keys = document.querySelectorAll(".keyboard-row button");
+
+		  function getTileColor(letter) {
+		    if (letter=="green") {
+		      return "#6fd067";
+		    }
+		    if (letter=="yellow") {
+		      return "#eacc45";
+		    }
+		    if (letter=="red") {
+		      return "#e24d49";
+		    }
+		  }
+
+		  function saveDataToLocalStorage(data)
+		    {
+		      var a = [];
+		      a = JSON.parse(localStorage.getItem('logs')) || [];
+		      a.push(data);
+		      localStorage.setItem('logs', JSON.stringify(a));
+		    }
+
+		  function updateGuessedWords(letter) {
+		    const numberOfGuessedWords = guessedWords.length;
+		    const currentWordArr = guessedWords;
+
+		    if (currentWordArr) {
+		      currentWordArr.push(letter);
+		      const availableSpaceEl = document.getElementById(String(availableSpace));
+
+		      availableSpace = availableSpace + 1;
+		      // JSON.parse(localStorage.getItem('logs'))[0]['time'].split(' ')[0]
+		      var now = new Date().toLocaleString().replace(",","");
+		      //availableSpaceEl.textContent = now;
+		      const tileColor = getTileColor(letter);
+		      availableSpaceEl.style = `background-color:${tileColor};border-color:${tileColor}`;
+
+		      // Log Data
+		      const log_item = {
+		          time: now,
+		          color: letter,
+		        }
+		      saveDataToLocalStorage(log_item);
+
+		      // Add new space
+		      addSpace(availableSpace);
+		    }
+		  }
+
+		  function createSquares() {
+		    const gameBoard = document.getElementById("board");
+
+		    var a = [];
+		    today = new Date().toLocaleString().split(',')[0];
+		    a = JSON.parse(localStorage.getItem('logs')) || [];
+
+		    if(a.length > 0 && a[a.length-1]['time'].split(' ')[0]==today) {
+		      for (var i = 0; i < a.length; i++) {
+		        if(a[i]['time'].split(' ')[0]=today) {
+		          let square = document.createElement("div");
+		          square.classList.add("square");
+		          square.classList.add("animate__animated");
+		          square.setAttribute("id", i+1);
+		          const tileColor = getTileColor(a[i]['color']);
+		          square.style = `background-color:${tileColor};border-color:${tileColor}`;
+		          gameBoard.appendChild(square);
+		          availableSpace = availableSpace + 1;
+		        }
+		      }
+		    }
+		    // Add new space
+		    addSpace(availableSpace);
+		  }
+
+		  function addSpace(availableSpace) {
+		    const gameBoard = document.getElementById("board");
+		    let square = document.createElement("div");
+		    square.classList.add("square");
+		    square.classList.add("animate__animated");
+		    square.setAttribute("id", availableSpace);
+		    gameBoard.appendChild(square);
+		  }
+
+		  for (let i = 0; i < keys.length; i++) {
+		    keys[i].onclick = ({ target }) => {
+		      const letter = target.getAttribute("data-key");
+		      updateGuessedWords(letter);
+		    };
+		  }
+
+		  function initHelpModal() {
+		    const modal = document.getElementById("help-modal");
+
+		    // Get the button that opens the modal
+		    const btn = document.getElementById("help");
+
+		    // Get the <span> element that closes the modal
+		    const span = document.getElementById("close-help");
+
+		    // When the user clicks on the button, open the modal
+		    btn.addEventListener("click", function () {
+		      modal.style.display = "block";
+		    });
+
+		    // When the user clicks on <span> (x), close the modal
+		    span.addEventListener("click", function () {
+		      modal.style.display = "none";
+		    });
+
+		    // When the user clicks anywhere outside of the modal, close it
+		    window.addEventListener("click", function (event) {
+		      if (event.target == modal) {
+		        modal.style.display = "none";
+		      }
+		    });
+		  }
+
+		  function updateStatsModal() {
+		    var a = [];
+		    var total = 0;
+		    var totalGreen = 0;
+		    var totalYellow = 0;
+		    var totalRed = 0;
+		    var todayTotal = 0;
+		    var todayGreen = 0;
+		    var todayYellow = 0;
+		    var todayRed = 0;
+
+		    today = new Date().toLocaleString().split(',')[0];
+		    a = JSON.parse(localStorage.getItem('logs')) || [];
+
+		    for (var i = 0; i < a.length; i++) {
+		      // Update Today
+		      if(a[i]['time'].split(' ')[0]=today) {
+		        if(a[i]['color'] == 'green') {
+		          todayGreen += 1;
+		        }
+		        if(a[i]['color'] == 'yellow') {
+		          todayYellow += 1;
+		        }
+		        if(a[i]['color'] == 'red') {
+		          todayRed += 1;
+		        }
+		        todayTotal +=1;
+		      }
+		      // Update Total
+		      if(a[i]['color'] == 'green') {
+		        totalGreen += 1;
+		      }
+		      if(a[i]['color'] == 'yellow') {
+		        totalYellow += 1;
+		      }
+		      if(a[i]['color'] == 'red') {
+		        totalRed += 1;
+		      }
+		      total +=1;
+		    }
+		    document.getElementById("total").textContent = total;
+		    document.getElementById("total-green").textContent = totalGreen + ' (' + Math.round(totalGreen/total*100) + '%)';
+		    document.getElementById("total-yellow").textContent = totalYellow + ' (' + Math.round(totalYellow/total*100) + '%)';
+		    document.getElementById("total-red").textContent = totalRed + ' (' + Math.round(totalRed/total*100) + '%)';
+		    document.getElementById("today-today").textContent = todayTotal;
+		    document.getElementById("today-green").textContent = todayGreen + ' (' + Math.round(todayGreen/todayTotal*100) + '%)';
+		    document.getElementById("today-yellow").textContent = todayYellow + ' (' + Math.round(todayYellow/todayTotal*100) + '%)';
+		    document.getElementById("today-red").textContent = todayRed + ' (' + Math.round(todayRed/todayTotal*100) + '%)';
+		  }
+
+		  function initStatsModal() {
+		    const modal = document.getElementById("stats-modal");
+
+		    // Get the button that opens the modal
+		    const btn = document.getElementById("stats");
+
+		    // Get the <span> element that closes the modal
+		    const span = document.getElementById("close-stats");
+
+		    // When the user clicks on the button, open the modal
+		    btn.addEventListener("click", function () {
+		      updateStatsModal();
+		      modal.style.display = "block";
+		    });
+
+		    // When the user clicks on <span> (x), close the modal
+		    span.addEventListener("click", function () {
+		      modal.style.display = "none";
+		    });
+
+		    // When the user clicks anywhere outside of the modal, close it
+		    window.addEventListener("click", function (event) {
+		      if (event.target == modal) {
+		        modal.style.display = "none";
+		      }
+		    });
+		  }
+		});
+    </script>
+	<script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-replace-svg="nest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style type="text/css">
+    	* {
+		  margin: 0;
+		  padding: 0;
+		}
+
+		html,
+		body {
+		  height: 100%;
+		  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+		    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+		}
+
+		#container {
+		  display: flex;
+		  background-color: black;
+		  height: 100%;
+		  align-items: center;
+		  flex-direction: column;
+		}
+
+		#game {
+		  width: 100%;
+		  max-width: 500px;
+		  height: 100%;
+		  display: flex;
+		  flex-direction: column;
+		}
+
+		header {
+		  display: flex;
+		  align-items: center;
+		  justify-content: space-between;
+		  padding-left: 10px;
+		  padding-right: 10px;
+		  border-bottom: 1px solid rgb(58, 58, 60);
+		}
+
+		.title {
+		  color: gainsboro;
+		  font-size: 2.5rem;
+		  font-weight: bold;
+		  margin: 0.4rem 0 0.4rem 0;
+		  text-align: center;
+		  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+		    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+		}
+
+		#board-container {
+		  display: flex;
+		  justify-content: center;
+		  align-items: top;
+		  flex-grow: 1;
+		  overflow: fixed;
+		}
+
+		#board {
+		  display: grid;
+		  grid-template-columns: repeat(1, 1fr);
+		  grid-gap: 0px;
+		  padding: 10px;
+		  box-sizing: border-box;
+		}
+
+		.square {
+		  border: 1px solid rgb(58, 58, 60);
+		  width: 100%;
+		  min-width: 320px;
+		  color: black;
+		  justify-content: center;
+		  align-items: center;
+		  display: flex;
+		}
+
+		#keyboard-container {
+		  height: 200px;
+		}
+
+		.keyboard-row {
+		  display: flex;
+		  justify-content: center;
+		  width: 100%;
+		  margin: 0 auto 8px;
+		  touch-action: manipulation;
+		}
+
+		.keyboard-row button {
+		  font-family: inherit;
+		  font-weight: bold;
+		  border: 0;
+		  padding: 0;
+		  height: 58px;
+		  cursor: pointer;
+		  background-color: rgb(129, 131, 132);
+		  color: rgb(215, 218, 220);
+		  flex-grow: 1;
+		  text-transform: uppercase;
+		  margin-right: 6px;
+		  border-radius: 4px;
+		  user-select: none;
+		}
+
+		.keyboard-row button#red{
+		  background-color: #e24d49;
+		}
+
+		.keyboard-row button#yellow{
+		  background-color: #eacc45;
+		}
+
+		.keyboard-row button#green{
+		  background-color: #6fd067;
+		}
+
+		.keyboard-row button.wide-button {
+		  flex-grow: 1.5;
+		}
+
+		.spacer-half {
+		  flex-grow: 0.5;
+		}
+
+		#help,
+		#stats {
+		  color: rgb(58, 58, 60);
+		  font-size: 1.5rem;
+		  cursor: pointer;
+		}
+
+		.title {
+		  color: gainsboro;
+		  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+		    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+		  font-size: 2.3rem;
+		  font-weight: bold;
+		  margin: 0.4rem 0 0.4rem 0;
+		  text-align: center;
+		}
+
+		#final-score {
+		  color: gainsboro;
+		}
+
+		.modal {
+		  display: none;
+		  position: fixed;
+		  z-index: 1;
+		  left: 0;
+		  top: 0;
+		  width: 100%;
+		  height: 100%;
+		  overflow: auto;
+		  background-color: rgb(0, 0, 0);
+		  background-color: rgba(0, 0, 0, 0.7);
+		}
+
+		.modal-content {
+		  background-color: rgb(18, 18, 19);
+		  margin: 5% auto;
+		  padding: 20px;
+		  width: 80%;
+		  color: gainsboro;
+		  max-width: 500px;
+		}
+
+		.modal-content hr {
+		  border: 1px solid rgb(58, 58, 60);
+		}
+
+		/* The Close Button */
+		.close {
+		  color: #aaa;
+		  float: right;
+		  font-size: 28px;
+		  font-weight: bold;
+		}
+
+		.close:hover,
+		.close:focus {
+		  color: black;
+		  text-decoration: none;
+		  cursor: pointer;
+		}
+
+		#examples {
+		  width: 80%;
+		}
+
+		.hidden {
+		  display: none;
+		}
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="game">
+        <header>
+          <i class="far fa-question-circle" id="help"></i>
+          <h1 class="title">Mood Logger</h1>
+          <i class="fas fa-chart-bar" id="stats"></i>
+        </header>
+        <div id="board-container">
+          <h2 id="final-score"></h2>
+          <div id="board"></div>
+        </div>
+
+        <div id="keyboard-container">
+          <div class="keyboard-row">
+            <button data-key="green" id="green"></button>
+          </div>
+          <div class="keyboard-row">
+            <button data-key="yellow" id="yellow"></button>
+          </div>
+          <div class="keyboard-row">
+            <button data-key="red" id="red"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="help-modal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close" id="close-help">&times;</span>
+          <h2>About</h2>
+          <br/>
+          <hr/>
+          <p>Click the Red, Yellow or Green as per your Mood</p>
+
+          <p>
+            Each click will add a color scale in today's Log Bar
+          </p>
+
+          <p>A new empty Bar will be available each day!</p>
+          <hr/>
+          <p>
+          PRIVACY POLICY </b> : We don't store your data, period.
+          </p>
+          <p>
+          Made with ❤️ in India!
+          </p>
+          <p>
+          <a href="index.html">vickysam</a>
+          </p>
+        </div>
+      </div>
+
+      <div id="stats-modal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close" id="close-stats">&times;</span>
+
+          <h2>Logs</h2>
+          <br/>
+          <hr/>
+          <h3><strong>Total</strong>: <span id="total"></span></h3>
+          <h3><strong>Green</strong>: <span id="total-green"></span></h3>
+          <h3><strong>Yellow</strong>: <span id="total-yellow"></span></h3>
+          <h3><strong>Red</strong>: <span id="total-red"></span></h3>
+          <br/>
+          <hr/>
+          <h3><strong>Today:</strong></h3>
+          <hr/>
+          <h3><strong>Total</strong>: <span id="today-today"></span></h3>
+          <h3><strong>Green</strong>: <span id="today-green"></span></h3>
+          <h3><strong>Yellow</strong>: <span id="today-yellow"></span></h3>
+          <h3><strong>Red</strong>: <span id="today-red"></span></h3>
+          <hr/>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
