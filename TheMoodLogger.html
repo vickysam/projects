@@ -181,6 +181,15 @@
 		    document.getElementById("today-green").textContent = todayGreen + ' (' + Math.round(todayGreen/todayTotal*100) + '%)';
 		    document.getElementById("today-yellow").textContent = todayYellow + ' (' + Math.round(todayYellow/todayTotal*100) + '%)';
 		    document.getElementById("today-red").textContent = todayRed + ' (' + Math.round(todayRed/todayTotal*100) + '%)';
+
+                    document.getElementById("greenBar").width = totalGreen/total*100;
+		    document.getElementById("yellowBar").width = totalYellow/total*100;
+		    document.getElementById("redBar").width = totalRed/total*100;
+		    
+		    document.getElementById("todayGreenBar").width = todayGreen/todayTotal*100;
+		    document.getElementById("todayYellowBar").width = todayYellow/todayTotal*100;
+		    document.getElementById("todayRedBar").width = todayRed/todayTotal*100;
+
 		  }
 
 		  function initStatsModal() {
