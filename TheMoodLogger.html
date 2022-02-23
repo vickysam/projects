@@ -14,8 +14,6 @@
 		  initHelpModal();
 		  initStatsModal();
 
-		  let guessedWords = [];
-
 		  const keys = document.querySelectorAll(".keyboard-row button");
 
 		  function getTileColor(letter) {
@@ -39,11 +37,6 @@
 		    }
 
 		  function updateGuessedWords(letter) {
-		    const numberOfGuessedWords = guessedWords.length;
-		    const currentWordArr = guessedWords;
-
-		    if (currentWordArr) {
-		      currentWordArr.push(letter);
 		      const availableSpaceEl = document.getElementById(String(availableSpace));
 
 		      availableSpace = availableSpace + 1;
@@ -62,7 +55,6 @@
 
 		      // Add new space
 		      addSpace(availableSpace);
-		    }
 		  }
 
 		  function createSquares() {
