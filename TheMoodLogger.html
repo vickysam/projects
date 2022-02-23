@@ -8,7 +8,7 @@
 
     <script type="text/javascript">
     	  document.addEventListener("DOMContentLoaded", () => {
-		  let availableSpace = 1;
+		  let availableSpace = JSON.parse(localStorage.getItem('logs')).length || 1;
 		  createSquares();
 
 		  initHelpModal();
