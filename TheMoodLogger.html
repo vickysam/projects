@@ -182,13 +182,13 @@
 		    document.getElementById("today-yellow").textContent = todayYellow + ' (' + Math.round(todayYellow/todayTotal*100) + '%)';
 		    document.getElementById("today-red").textContent = todayRed + ' (' + Math.round(todayRed/todayTotal*100) + '%)';
 
-                    document.getElementById("totalGreenBar").style.width = totalGreen/total*100;
-		    document.getElementById("totalYellowBar").style.width = totalYellow/total*100;
-		    document.getElementById("totalRedBar").style.width = totalRed/total*100;
+                    document.getElementById("totalGreenBar").style.width = (totalGreen/total*100) + '%';
+		    document.getElementById("totalYellowBar").style.width = (totalYellow/total*100) + '%';
+		    document.getElementById("totalRedBar").style.width = (totalRed/total*100) + '%';
 		    
-		    document.getElementById("todayGreenBar").style.width = todayGreen/todayTotal*100;
-		    document.getElementById("todayYellowBar").style.width = todayYellow/todayTotal*100;
-		    document.getElementById("todayRedBar").style.width = todayRed/todayTotal*100;
+		    document.getElementById("todayGreenBar").style.width = (todayGreen/todayTotal*100) + '%';
+		    document.getElementById("todayYellowBar").style.width = (todayYellow/todayTotal*100) + '%';
+		    document.getElementById("todayRedBar").style.width = (todayRed/todayTotal*100) + '%';
                     
 		  }
 
@@ -300,18 +300,21 @@
                 #todayGreenBar {
                   background-color: #238823;
                   height: 20px;
+                  width: 0px;
                 }
 
                 #totalYellowBar,
                 #todayYellowBar {
                   background-color: #FFBF00;
                   height: 20px;
+                  width: 0px;
                 }
 
                 #totalRedBar,
                 #todayRedBar {
                   background-color: #D2222D;
                   height: 20px;
+                  width: 0px;
                 }
 
 		.square {
