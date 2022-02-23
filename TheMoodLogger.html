@@ -74,7 +74,7 @@
 
 		    if(a.length > 0 && a[a.length-1]['time'].split(' ')[0]==today) {
 		      for (var i = 0; i < a.length; i++) {
-		        if(a[i]['time'].split(' ')[0]=today) {
+		        if(a[i]['time'].split(' ')[0]==today) {
 		          let square = document.createElement("div");
 		          square.classList.add("square");
 		          square.classList.add("animate__animated");
@@ -149,7 +149,7 @@
 
 		    for (var i = 0; i < a.length; i++) {
 		      // Update Today
-		      if(a[i]['time'].split(' ')[0]=today) {
+		      if(a[i]['time'].split(' ')[0]==today) {
 		        if(a[i]['color'] == 'green') {
 		          todayGreen += 1;
 		        }
