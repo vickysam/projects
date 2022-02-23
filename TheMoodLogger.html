@@ -177,7 +177,7 @@
 		    document.getElementById("total-green").textContent = totalGreen + ' (' + Math.round(totalGreen/total*100) + '%)';
 		    document.getElementById("total-yellow").textContent = totalYellow + ' (' + Math.round(totalYellow/total*100) + '%)';
 		    document.getElementById("total-red").textContent = totalRed + ' (' + Math.round(totalRed/total*100) + '%)';
-		    document.getElementById("today-today").textContent = todayTotal;
+		    document.getElementById("today-total").textContent = todayTotal;
 		    document.getElementById("today-green").textContent = todayGreen + ' (' + Math.round(todayGreen/todayTotal*100) + '%)';
 		    document.getElementById("today-yellow").textContent = todayYellow + ' (' + Math.round(todayYellow/todayTotal*100) + '%)';
 		    document.getElementById("today-red").textContent = todayRed + ' (' + Math.round(todayRed/todayTotal*100) + '%)';
@@ -474,13 +474,26 @@
           <h3><strong>Yellow</strong>: <span id="total-yellow"></span></h3>
           <h3><strong>Red</strong>: <span id="total-red"></span></h3>
           <br/>
+          <div id="totalProgress">
+            <div id="totalGreenBar"></div>
+            <div id="totalYellowBar"></div>
+            <div id="totalRedBar"></div>
+          </div>
+          <br/>
           <hr/>
           <h3><strong>Today:</strong></h3>
           <hr/>
-          <h3><strong>Total</strong>: <span id="today-today"></span></h3>
+          <h3><strong>Total</strong>: <span id="today-total"></span></h3>
           <h3><strong>Green</strong>: <span id="today-green"></span></h3>
           <h3><strong>Yellow</strong>: <span id="today-yellow"></span></h3>
           <h3><strong>Red</strong>: <span id="today-red"></span></h3>
+          <br/>
+          <div id="totalTodayProgress">
+            <div id="todayGreenBar"></div>
+            <div id="todayYellowBar"></div>
+            <div id="todayRedBar"></div>
+          </div>
+          <br/>
           <hr/>
         </div>
       </div>
