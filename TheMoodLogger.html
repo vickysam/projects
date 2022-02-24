@@ -84,12 +84,12 @@
 		    addSpace(availableSpace);
 		  }
 
-		  function addSpace(availableSpace) {
+		  function addSpace(aSid) {
 		    const gameBoard = document.getElementById("board");
 		    let square = document.createElement("div");
 		    square.classList.add("square");
 		    square.classList.add("animate__animated");
-		    square.setAttribute("id", availableSpace);
+		    square.setAttribute("id", aSid);
 		    gameBoard.appendChild(square);
 		  }
 
