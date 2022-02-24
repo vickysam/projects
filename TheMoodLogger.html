@@ -8,7 +8,7 @@
 
     <script type="text/javascript">
     	  document.addEventListener("DOMContentLoaded", () => {
-		  let availableSpace = 1;
+		  let availableSpace = 0;
 		  createSquares();
 
 		  initHelpModal();
@@ -70,7 +70,7 @@
 		          let square = document.createElement("div");
 		          square.classList.add("square");
 		          square.classList.add("animate__animated");
-		          square.setAttribute("id", i+1);
+		          square.setAttribute("id", i);
 		          const tileColor = getTileColor(a[i]['color']);
 		          square.style = `background-color:${tileColor};border-color:${tileColor}`;
 		          gameBoard.appendChild(square);
@@ -78,7 +78,7 @@
 		        }
 		      }
 		    } else {
-                       availableSpace = 1;
+                       availableSpace = 0;
                     }
 		    // Add new space
 		    addSpace(availableSpace);
