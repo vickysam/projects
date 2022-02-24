@@ -39,7 +39,7 @@
 		  function updateGuessedWords(letter) {
 		      const availableSpaceEl = document.getElementById(String(availableSpace));
 
-		      availableSpace = availableSpace + 1;
+		      // availableSpace = availableSpace + 1;
 		      // JSON.parse(localStorage.getItem('logs'))[0]['time'].split(' ')[0]
 		      var now = new Date().toLocaleString().replace(",","");
 		      //availableSpaceEl.textContent = now;
@@ -54,7 +54,7 @@
 		      saveDataToLocalStorage(log_item);
 
 		      // Add new space
-		      addSpace(availableSpace);
+		      // addSpace(availableSpace);
 		  }
 
 		  function createSquares() {
@@ -65,33 +65,38 @@
 		    a = JSON.parse(localStorage.getItem('logs')) || [];
 
 		    if(a.length > 0 && a[a.length-1]['time'].split(' ')[0]==today) {
-		      for (var i = 0; i < a.length; i++) {
-		        if(a[i]['time'].split(' ')[0]==today) {
+		      //for (var i = 0; i < a.length; i++) {
+		        //if(a[i]['time'].split(' ')[0]==today) {
 		          let square = document.createElement("div");
 		          square.classList.add("square");
 		          square.classList.add("animate__animated");
-		          square.setAttribute("id", i);
-		          const tileColor = getTileColor(a[i]['color']);
+		          square.setAttribute("id", availableSpace);
+		          const tileColor = getTileColor(a[a.length-1]['color']);
 		          square.style = `background-color:${tileColor};border-color:${tileColor}`;
 		          gameBoard.appendChild(square);
-		          availableSpace = availableSpace + 1;
-		        }
-		      }
+		          //availableSpace = availableSpace + 1;
+		        //}
+		      //}
 		    } else {
-                       availableSpace = 0;
-                    }
+               	  availableSpace = 0;
+               	  let square = document.createElement("div");
+			      square.classList.add("square");
+			      square.classList.add("animate__animated");
+			      square.setAttribute("id", availableSpace);
+			      gameBoard.appendChild(square);
+            }
 		    // Add new space
-		    addSpace(availableSpace);
+		    //
 		  }
 
-		  function addSpace(aSid) {
+		  /*function addSpace(aSid) {
 		    const gameBoard = document.getElementById("board");
 		    let square = document.createElement("div");
 		    square.classList.add("square");
 		    square.classList.add("animate__animated");
 		    square.setAttribute("id", aSid);
 		    gameBoard.appendChild(square);
-		  }
+		  }*/
 
 		  for (let i = 0; i < keys.length; i++) {
 		    keys[i].onclick = ({ target }) => {
@@ -477,10 +482,10 @@
           <p>Click the <span style="color:#D2222D;">Red</span>, <span style="color:#FFBF00;">Yellow</span> or <span style="color:#238823;">Green</span> as per your Mood</p>
 
           <p>
-            Each click will add a color scale in today's Log Bar
+            Each click will change a color to log and denote current mood. You can check stats by clicking on <i class="fas fa-chart-bar" id="stats"></i> button.
           </p>
 
-          <p>A new empty Bar will be available each day!</p>
+          <p>A new empty square will be available each day!</p>
           <hr/>
           <p>
           PRIVACY POLICY </b> : We don't store your data, period.
@@ -499,10 +504,11 @@
         <div class="modal-content">
           <span class="close" id="close-stats">&times;</span>
 
-          <h2>Logs</h2>
+          <h2>Status</h2>
           <br/>
           <hr/>
-          <h3><strong>Total</strong>: <span id="total"></span></h3>
+          <h3><strong>Overall Total</strong>: <span id="total"></span></h3>
+          <hr/>
           <h3><strong>Green</strong>: <span id="total-green"></span></h3>
           <h3><strong>Yellow</strong>: <span id="total-yellow"></span></h3>
           <h3><strong>Red</strong>: <span id="total-red"></span></h3>
@@ -514,9 +520,8 @@
           </div>
           <br/>
           <hr/>
-          <h3><strong>Today:</strong></h3>
+          <h3><strong>Today Total</strong>: <span id="today-total"></span></h3>
           <hr/>
-          <h3><strong>Total</strong>: <span id="today-total"></span></h3>
           <h3><strong>Green</strong>: <span id="today-green"></span></h3>
           <h3><strong>Yellow</strong>: <span id="today-yellow"></span></h3>
           <h3><strong>Red</strong>: <span id="today-red"></span></h3>
