@@ -1,0 +1,142 @@
+ <!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <title>The Life</title>
+    <style type="text/css">
+      .container {
+        width: 100%;
+      }
+      .canvas {
+        width: 100%;
+        height: 60px;
+      }
+      .slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 25px;
+        background: #000000;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+      }
+
+      #currentYearRange {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 25px;
+        background: #ffffff;
+        outline: none;
+        -webkit-transition: .2s;
+      }
+
+    </style>
+    <script type="text/javascript">
+    
+    function defineAll() {
+      const d = new Date();
+      let year = d.getFullYear();
+      currentYearRange.value = year;
+
+      // Update Cannvas
+      const canvas = document.getElementById('canvas');
+      const ctx = canvas.getContext('2d');
+      startPixel = canvas.width * ((birthRange.value - birthRange.min) / (birthRange.max-birthRange.min));
+      endPixel = (canvas.width * ((deathRange.value - deathRange.min) / (deathRange.max-deathRange.min)) - startPixel);
+      currentYearPixel = canvas.width * ((currentYearRange.value - currentYearRange.min) / (currentYearRange.max-currentYearRange.min));
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'green';
+      ctx.fillRect(startPixel, 10, endPixel, 200);
+      
+
+      ctx.fillStyle = 'red';
+      ctx.fillRect(startPixel, 10, currentYearPixel-startPixel, 200);
+      
+    }
+
+    function onBirthSliderChange(value) {
+      birthRangeValue.innerText = value;
+      deathRangeValue.innerText = (parseInt(value) + 73);
+      deathRange.value = (parseInt(value) + 73)
+
+      // Update Cannvas
+      const canvas = document.getElementById('canvas');
+      const ctx = canvas.getContext('2d');
+      startPixel = canvas.width * ((birthRange.value - birthRange.min) / (birthRange.max-birthRange.min));
+      endPixel = (canvas.width * ((deathRange.value - deathRange.min) / (deathRange.max-deathRange.min)) - startPixel);
+      currentYearPixel = canvas.width * ((currentYearRange.value - currentYearRange.min) / (currentYearRange.max-currentYearRange.min));
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'green';
+      ctx.fillRect(startPixel, 10, endPixel, 200);
+      
+      ctx.fillStyle = 'red';
+      if(currentYearPixel-startPixel > 0) {
+        if(currentYearPixel-startPixel > endPixel) {
+          ctx.fillRect(startPixel, 10, endPixel, 200);
+        } else {
+          ctx.fillRect(startPixel, 10, currentYearPixel-startPixel, 200);  
+        }
+      }
+    }
+    function onDeathSliderChange(value) {
+      deathRangeValue.innerText = value
+
+      // Update Cannvas
+      const canvas = document.getElementById('canvas');
+      const ctx = canvas.getContext('2d');
+      
+      startPixel = canvas.width * ((birthRange.value - birthRange.min) / (birthRange.max-birthRange.min));
+      endPixel = (canvas.width * ((deathRange.value - deathRange.min) / (deathRange.max-deathRange.min)) - startPixel);
+      currentYearPixel = canvas.width * ((currentYearRange.value - currentYearRange.min) / (currentYearRange.max-currentYearRange.min));
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'green';
+      ctx.fillRect(startPixel, 10, endPixel, 200);
+
+      ctx.fillStyle = 'red';
+      if(currentYearPixel-startPixel > 0) {
+        if(currentYearPixel-startPixel > endPixel) {
+          ctx.fillRect(startPixel, 10, endPixel, 200);
+        } else {
+          ctx.fillRect(startPixel, 10, currentYearPixel-startPixel, 200);  
+        }
+      }
+    }
+    </script>
+  </head>
+
+  <body onload="defineAll()">
+    <br/>
+    <div>
+      <h1 style="font-weight: 150;text-align: center;font-family: 'Roboto', sans-serif;"><b>The Life</b></h1>
+      <h4 style="font-weight: 100;text-align: center;font-family: 'Roboto', sans-serif;">Do you know how much time we have already crossed????</h4>
+    </div>
+    <br/>
+    <div class="container">
+      <center style="font-weight: 80;text-align: center;font-family: 'Roboto', sans-serif;"><b>Birth Year: </b><div id="birthRangeValue">1992</div></center>
+      <input type="range" min="1900" max="2200" value="1992" class="slider" id="birthRange" oninput="onBirthSliderChange(this.value)">
+      <canvas id="canvas" class="canvas"></canvas>
+      <input type="range" min="1900" max="2200" value="2022" class="slider" id="currentYearRange" hidden="true">
+      <input type="range" min="1900" max="2200" value="2065" class="slider" id="deathRange" oninput="onDeathSliderChange(this.value)">
+      <center style="font-weight: 80;text-align: center;font-family: 'Roboto', sans-serif;"><b>Death Year: </b><div id="deathRangeValue">2065</div>
+        <div>Life Expectancy of the World Population (Data based on the latest United Nations Population Division estimates.) : <b>73.2 years</b></div></center>
+    </div>
+    <br/>
+    <div>
+      <h4 style="font-weight: 100;text-align: center;font-family: 'Roboto', sans-serif;">Inspired from</h4>
+      <h4 style="font-weight: 100;text-align: center;font-family: 'Roboto', sans-serif;">The Instant Gratification Monkey</h4>
+    </div>
+    <hr/>
+    <h6 style="text-align: center;font-family: 'Roboto', sans-serif;"><b> PRIVACY POLICY </b> : We don't store your data, period.</h6>
+    <h6 style="text-align: center;font-family: 'Roboto', sans-serif;">Made with ❤️ in India!</h6>
+    <h6 style="text-align: center;font-family: 'Roboto', sans-serif;"><a href="index.html">vickysam</a></h6> 
+  </body>
+
+</html>
