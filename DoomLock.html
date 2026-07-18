@@ -117,102 +117,98 @@ margin-top:30px;
 
 /* PATENT PRODUCT */
 
-
-.patent-view{
+.patent-diagram{
 
 position:relative;
 width:520px;
-height:600px;
+height:720px;
 margin:80px auto;
-
-animation:float 6s ease-in-out infinite;
-
-}
-
-
-@keyframes float{
-
-50%{
-transform:translateY(-12px);
-}
+font-family:monospace;
+color:white;
 
 }
 
 
 
+.fig-title{
+
+text-align:center;
+font-size:18px;
+font-weight:bold;
+margin-bottom:30px;
+
+}
 
 
-/* PHONE */
 
 
-.phone-body{
+.phone-box{
 
 position:absolute;
-left:150px;
-top:40px;
-width:230px;
-height:450px;
-background:#fff;
-border:5px solid #111;
-border-radius:40px;
+left:160px;
+top:70px;
+
+width:210px;
+height:390px;
+
+border:4px solid white;
+border-radius:25px;
+
+background:#050505;
 
 }
 
 
 
-.phone-screen{
+.screen-box{
 
 position:absolute;
-inset:18px;
-background:#000;
-border-radius:28px;
-overflow:hidden;
+inset:20px;
+
+border:2px solid #777;
+border-radius:15px;
+
+padding-top:60px;
 
 }
 
 
 
-.feed-line{
+.screen-bar{
 
-height:45px;
-background:#222;
-margin:25px 18px;
-border-radius:8px;
+height:30px;
+margin:15px;
+background:#333;
 
 }
 
 
 
 
-
-/* USB C */
-
-
-.usb-port{
+.thumb-mark{
 
 position:absolute;
-bottom:-12px;
-left:50%;
-transform:translateX(-50%);
-width:50px;
-height:12px;
-background:#111;
-border-radius:8px;
+bottom:40px;
+right:20px;
+
+font-size:30px;
 
 }
 
 
 
-.usb-adapter{
+
+
+.usb-port-mark{
 
 position:absolute;
-top:480px;
-left:238px;
-width:55px;
-height:70px;
+bottom:-10px;
+left:80px;
+
+width:45px;
+height:8px;
+
 background:white;
-border:4px solid #111;
-border-radius:10px;
 
 }
 
@@ -220,19 +216,57 @@ border-radius:10px;
 
 
 
-/* RUBBER LOOP */
-
-
-.resistance-loop{
+.usb-label{
 
 position:absolute;
-top:500px;
-left:290px;
+left:50px;
+top:480px;
+
+font-size:12px;
+
+}
+
+
+
+
+
+.adapter-box{
+
+position:absolute;
+
+left:235px;
+top:470px;
+
+border:3px solid white;
+
+padding:15px;
+
+font-size:12px;
+
+}
+
+
+
+
+
+.band-line{
+
+
+position:absolute;
+
+left:270px;
+top:540px;
+
+
 width:170px;
 height:120px;
-border:8px solid white;
-border-radius:100px;
-transform:rotate(25deg);
+
+
+border-left:8px solid white;
+border-bottom:8px solid white;
+
+border-radius:0 0 80px 80px;
+
 
 }
 
@@ -240,100 +274,115 @@ transform:rotate(25deg);
 
 
 
-/* HAND + THUMB */
+.loop-circle{
 
-
-.hand{
 
 position:absolute;
-right:20px;
-bottom:50px;
-width:150px;
-height:230px;
-background:#222;
-border-radius:80px 80px 30px 30px;
 
-}
+right:50px;
+top:520px;
 
 
-.thumb{
-
-position:absolute;
-left:-45px;
-top:40px;
-width:75px;
-height:150px;
-background:#333;
-border-radius:50px;
-
-}
+width:100px;
+height:100px;
 
 
-
-.thumb-ring{
-
-position:absolute;
-top:45px;
-left:-10px;
-width:95px;
-height:95px;
 border:6px solid white;
+
 border-radius:50%;
 
+text-align:center;
+
+padding-top:25px;
+
+font-size:11px;
+
+
 }
 
 
 
 
 
+.hand-outline{
 
-/* LABELS */
-
-
-.label{
 
 position:absolute;
-color:#999;
-font-size:12px;
-line-height:1.5;
 
-}
-
-
-.label-phone{
-
-left:20px;
-top:160px;
-
-}
-
-
-.label-usb{
-
-left:40px;
-bottom:100px;
-
-}
-
-
-.label-band{
-
-right:0;
-top:500px;
-
-}
-
-
-.label-thumb{
-
-right:0;
+left:80px;
 bottom:110px;
 
+
+width:150px;
+height:80px;
+
+
+border:3px solid #888;
+
+border-radius:80px;
+
+
+text-align:center;
+
+padding-top:20px;
+
+font-size:12px;
+
 }
 
 
 
 
+
+.callout{
+
+position:absolute;
+
+color:#aaa;
+
+font-size:12px;
+
+}
+
+
+
+.device{
+
+left:20px;
+top:180px;
+
+}
+
+
+
+.band{
+
+right:0;
+top:600px;
+
+}
+
+
+
+
+
+.patent-footer{
+
+
+position:absolute;
+
+bottom:0;
+
+width:100%;
+
+text-align:center;
+
+font-size:12px;
+
+color:#aaa;
+
+
+}
 
 /* BUTTON */
 
@@ -398,128 +447,149 @@ A USB-C resistance loop that physically fights your scrolling habit.
 Every swipe requires commitment.
 </p>
 
+<div class="patent-diagram">
+
+
+    <div class="fig-title">
+        DOOMLOCK — FIG. 1
+    </div>
+
+
+
+    <div class="phone-box">
+
+
+        <div class="screen-box">
+
+            <div class="screen-bar"></div>
+            <div class="screen-bar"></div>
+            <div class="screen-bar"></div>
+
+
+            <div class="thumb-mark">
+                👆
+            </div>
+
+        </div>
+
+
+
+        <div class="usb-port-mark">
+            
+        </div>
+
+
+    </div>
 
 
 
 
-<div class="patent-view">
+
+    <div class="usb-label">
+
+        101<br>
+        USB-C PORT
+
+    </div>
 
 
-<!-- PHONE -->
 
 
-<div class="phone-body">
+    <div class="adapter-box">
+
+        102<br>
+        ADAPTER
+
+    </div>
 
 
-<div class="phone-screen">
 
 
-<div class="feed-line"></div>
 
-<div class="feed-line"></div>
+    <div class="band-line">
 
-<div class="feed-line"></div>
+    </div>
+
+
+
+    <div class="loop-circle">
+
+        104<br>
+        THUMB LOOP
+
+    </div>
+
+
+
+
+
+
+    <div class="hand-outline">
+
+
+        HAND<br>
+        HOLDING<br>
+        PHONE
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="callout device">
+
+        105<br>
+        MOBILE DEVICE
+
+    </div>
+
+
+
+    <div class="callout band">
+
+        103<br>
+        4MM SILICONE<br>
+        RESISTANCE BAND
+
+    </div>
+
+
+
+
+
+
+
+    <div class="patent-footer">
+
+
+        ───────────────────────
+
+
+        <br>
+
+
+        DOOMLOCK<br>
+
+
+        ANALOG SCREEN-TIME<br>
+        RESISTANCE DEVICE
+
+
+        <br><br>
+
+
+        FIG. 1 — USB-C THUMB CONTROL ASSEMBLY
+
+
+    </div>
+
 
 
 </div>
-
-
-<div class="usb-port"></div>
-
-
-</div>
-
-
-
-
-
-<!-- USB ADAPTER -->
-
-
-<div class="usb-adapter"></div>
-
-
-
-
-
-<!-- SILICONE LOOP -->
-
-
-<div class="resistance-loop"></div>
-
-
-
-
-
-
-<!-- HAND -->
-
-
-<div class="hand">
-
-
-<div class="thumb">
-
-
-<div class="thumb-ring"></div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<!-- PATENT LABELS -->
-
-
-<div class="label label-phone">
-
-105<br>
-MOBILE DEVICE
-
-</div>
-
-
-
-<div class="label label-usb">
-
-101<br>
-USB-C INTERFACE
-
-</div>
-
-
-
-<div class="label label-band">
-
-103<br>
-4MM SILICONE<br>
-RESISTANCE LOOP
-
-</div>
-
-
-
-<div class="label label-thumb">
-
-106<br>
-THUMB<br>
-ENGAGEMENT AREA
-
-</div>
-
-
-
-</div>
-
-
-
-
 
 
 <button class="btn" onclick="notifyUser()">
