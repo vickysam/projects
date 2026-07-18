@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -15,48 +16,61 @@
 
 <style>
 
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+
 html{
     scroll-behavior:smooth;
 }
 
+
 body{
+
     background:#000;
+
     color:#fff;
+
     font-family:'Inter',sans-serif;
+
     overflow-x:hidden;
+
 }
+
 
 ::selection{
+
     background:#fff;
+
     color:#000;
+
 }
 
 
-.container{
-    width:min(1200px,90%);
-    margin:auto;
-}
 
+/* NAV */
 
-/* NAVIGATION */
 
 nav{
 
     position:fixed;
+
     top:0;
+
     left:0;
+
     right:0;
 
     height:80px;
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
     padding:0 5%;
@@ -65,11 +79,12 @@ nav{
 
     backdrop-filter:blur(20px);
 
-    border-bottom:1px solid rgba(255,255,255,.08);
+    border-bottom:1px solid #222;
 
     z-index:1000;
 
 }
+
 
 
 .logo{
@@ -78,20 +93,25 @@ nav{
 
     font-weight:900;
 
-    letter-spacing:5px;
+    letter-spacing:6px;
 
 }
 
 
+
 .nav-link{
 
-    color:#999;
+    color:#888;
 
     text-decoration:none;
 
     font-size:14px;
 
 }
+
+
+
+
 
 
 
@@ -112,9 +132,10 @@ nav{
 
     text-align:center;
 
-    padding:120px 20px 50px;
+    padding:130px 20px 50px;
 
 }
+
 
 
 .hero small{
@@ -123,9 +144,8 @@ nav{
 
     letter-spacing:8px;
 
-    font-weight:600;
-
 }
+
 
 
 .hero h1{
@@ -136,22 +156,23 @@ nav{
 
     line-height:.95;
 
-    font-weight:900;
+    letter-spacing:-5px;
 
-    letter-spacing:-4px;
+    font-weight:900;
 
 }
 
 
-.hero p{
 
-    margin-top:30px;
+.hero p{
 
     max-width:650px;
 
+    margin-top:30px;
+
     color:#999;
 
-    font-size:clamp(18px,2vw,24px);
+    font-size:22px;
 
     line-height:1.6;
 
@@ -159,221 +180,52 @@ nav{
 
 
 
-/* PRODUCT MODEL */
 
-.phone-scene{
 
-position:relative;
 
-width:420px;
 
-height:520px;
 
-margin:80px auto;
+/* PATENT PRODUCT VIEW */
 
-}
-
-
-.phone{
-
-position:absolute;
-
-left:80px;
-
-top:30px;
-
-width:240px;
-
-height:450px;
-
-background:#111;
-
-border:4px solid #333;
-
-border-radius:40px;
-
-box-shadow:
-0 40px 80px rgba(255,255,255,.15);
-
-}
-
-
-
-.screen{
-
-position:absolute;
-
-inset:15px;
-
-background:#050505;
-
-border-radius:30px;
-
-overflow:hidden;
-
-}
-
-
-
-.feed{
-
-padding:50px 20px;
-
-}
-
-
-.feed span{
-
-display:block;
-
-height:70px;
-
-background:#222;
-
-border-radius:15px;
-
-margin-bottom:20px;
-
-}
-
-
-
-.usb-port{
-
-position:absolute;
-
-bottom:-8px;
-
-left:50%;
-
-transform:translateX(-50%);
-
-width:50px;
-
-height:10px;
-
-background:#777;
-
-border-radius:10px;
-
-}
-
-
-
-.usb-lock{
-
-position:absolute;
-
-bottom:-80px;
-
-left:50%;
-
-transform:translateX(-50%);
-
-}
-
-
-
-.lock-head{
-
-width:70px;
-
-height:80px;
-
-background:white;
-
-border-radius:12px;
-
-}
-
-
-
-.silicone-wire{
-
-position:absolute;
-
-top:70px;
-
-left:35px;
-
-width:180px;
-
-height:180px;
-
-border:8px solid white;
-
-border-radius:50%;
-
-}
-
-
-
-.hand{
-
-position:absolute;
-
-right:0;
-
-bottom:30px;
-
-width:180px;
-
-height:250px;
-
-background:#222;
-
-border-radius:80px 80px 30px 30px;
-
-}
-
-
-
-.thumb{
-
-position:absolute;
-
-top:30px;
-
-left:-40px;
-
-width:80px;
-
-height:160px;
-
-background:#333;
-
-border-radius:50px;
-
-}
-
-
-
-.thumb-loop{
-
-position:absolute;
-
-top:40px;
-
-left:-20px;
-
-width:120px;
-
-height:120px;
-
-border:6px solid white;
-
-border-radius:50%;
-
-}
 
 .patent-view{
 
     position:relative;
+
     width:520px;
+
     height:600px;
+
     margin:80px auto;
 
+    animation:floatPatent 6s ease-in-out infinite;
+
 }
+
+
+
+@keyframes floatPatent{
+
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+
+}
+
+
+
+
 
 
 
@@ -382,34 +234,45 @@ border-radius:50%;
 
 .patent-phone{
 
+
     position:absolute;
 
-    left:160px;
+    left:150px;
+
     top:40px;
 
-    width:220px;
-    height:430px;
+    width:230px;
+
+    height:450px;
 
     background:#fff;
 
     border:5px solid #111;
 
-    border-radius:35px;
+    border-radius:40px;
+
+    box-shadow:
+
+    0 40px 100px rgba(255,255,255,.12);
+
 
 }
 
 
-.screen{
+
+.patent-screen{
+
 
     position:absolute;
 
-    inset:20px;
+    inset:18px;
 
     background:#000;
 
-    border-radius:22px;
+    border-radius:28px;
 
-    padding-top:70px;
+    overflow:hidden;
+
 
 }
 
@@ -417,116 +280,164 @@ border-radius:50%;
 
 .screen-line{
 
-    height:35px;
 
-    background:#333;
+    height:45px;
 
-    margin:15px;
+    background:#222;
+
+    margin:25px 18px;
 
     border-radius:8px;
+
 
 }
 
 
 
-.usb-port{
+.thumb-indicator{
+
 
     position:absolute;
 
-    bottom:-8px;
+    bottom:50px;
+
+    right:20px;
+
+    color:#fff;
+
+    font-size:10px;
+
+    border:1px solid #555;
+
+    padding:8px;
+
+}
+
+
+
+
+
+
+
+/* USB C PORT */
+
+
+.usb-port{
+
+
+    position:absolute;
+
+    bottom:-10px;
 
     left:50%;
 
     transform:translateX(-50%);
 
-    width:45px;
+    width:50px;
 
-    height:10px;
+    height:12px;
 
     background:#111;
 
-    border-radius:5px;
+    border-radius:8px;
+
 
 }
 
 
 
 
-/* USB CONNECTOR */
+
+
+
+/* ADAPTER */
 
 
 .usb-adapter{
 
+
     position:absolute;
 
-    top:470px;
+    top:480px;
 
-    left:242px;
+    left:238px;
 
     width:55px;
 
-    height:65px;
+    height:70px;
 
     background:#fff;
 
     border:4px solid #111;
 
-    border-radius:8px;
+    border-radius:10px;
+
 
 }
-
 
 
 .adapter-label{
 
     position:absolute;
 
-    right:-55px;
+    right:-45px;
 
-    top:15px;
+    top:20px;
 
-    font-size:14px;
+    font-size:12px;
 
 }
 
 
 
 
-/* LOOP */
+
+
+
+
+/* SILICONE LOOP */
 
 
 .silicone-loop{
 
+
     position:absolute;
 
-    top:470px;
+    top:500px;
 
-    left:290px;
+    left:285px;
 
-    width:160px;
+    width:170px;
 
     height:120px;
 
     border:8px solid #fff;
 
-    border-radius:80px;
+    border-radius:100px;
 
     transform:rotate(25deg);
+
 
 }
 
 
+
 .loop-label{
+
 
     position:absolute;
 
     right:-45px;
 
-    top:40px;
+    top:45px;
 
-    color:#fff;
+    font-size:12px;
 
 }
+
+
+
+
 
 
 
@@ -535,9 +446,10 @@ border-radius:50%;
 
 .hand{
 
+
     position:absolute;
 
-    right:30px;
+    right:25px;
 
     bottom:40px;
 
@@ -549,19 +461,21 @@ border-radius:50%;
 
     border-radius:80px 80px 30px 30px;
 
+
 }
 
 
 
 .thumb{
 
+
     position:absolute;
 
     left:-45px;
 
-    top:40px;
+    top:35px;
 
-    width:70px;
+    width:75px;
 
     height:150px;
 
@@ -569,11 +483,14 @@ border-radius:50%;
 
     border-radius:50px;
 
+
 }
 
 
 
+
 .thumb-loop{
+
 
     position:absolute;
 
@@ -581,15 +498,17 @@ border-radius:50%;
 
     left:-15px;
 
-    width:90px;
+    width:95px;
 
-    height:90px;
+    height:95px;
 
     border:6px solid #fff;
 
     border-radius:50%;
 
+
 }
+
 
 
 .thumb-loop span{
@@ -600,584 +519,124 @@ border-radius:50%;
 
     top:35px;
 
+    font-size:12px;
+
 }
 
 
 
-/* LABELS */
+
+
+
+/* CALLOUTS */
 
 
 .callout{
 
+
     position:absolute;
 
-    color:#aaa;
+    color:#999;
 
     font-size:13px;
 
-    line-height:1.4;
+    line-height:1.5;
 
 }
+
 
 
 .phone-callout{
 
     left:20px;
 
-    top:150px;
+    top:160px;
 
 }
+
 
 
 .usb-callout{
 
-    left:40px;
+    left:30px;
 
-    bottom:80px;
+    bottom:100px;
 
 }
+
 
 
 .band-callout{
 
     right:0;
 
-    top:480px;
+    top:500px;
 
 }
+
 
 
 .thumb-callout{
 
     right:0;
 
-    bottom:80px;
+    bottom:100px;
 
 }
 
 
 
 
-@media(max-width:600px){
 
-    .patent-view{
-
-        transform:scale(.7);
-
-        margin-left:-40px;
-
-    }
-
-}
-
-@media(max-width:600px){
-
-.phone-scene{
-
-transform:scale(.75);
-
-margin-top:20px;
-
-}
-
-}
-
-@keyframes phoneFloat{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-12px);
-    }
-
-}
-
-.phone-scene{
-    animation:phoneFloat 5s ease-in-out infinite;
-}
 
 /* BUTTON */
 
 
 .btn{
 
-    margin-top:30px;
+
+    margin-top:20px;
 
     padding:18px 45px;
-
-    background:#fff;
-
-    color:#000;
 
     border:none;
 
     border-radius:50px;
 
-    font-weight:700;
+    background:#fff;
+
+    color:#000;
 
     font-size:16px;
 
+    font-weight:700;
+
     cursor:pointer;
 
-    transition:.3s;
 
 }
 
 
 .btn:hover{
 
+
     transform:translateY(-5px);
 
-    box-shadow:
-
-    0 20px 50px rgba(255,255,255,.2);
 
 }
-/* GENERAL SECTIONS */
-
-section{
-
-    width:min(1200px,90%);
-
-    margin:auto;
-
-    padding:100px 0;
-
-}
-
-
-.section-title{
-
-    text-align:center;
-
-    font-size:clamp(36px,5vw,60px);
-
-    font-weight:900;
-
-    letter-spacing:-2px;
-
-    margin-bottom:20px;
-
-}
-
-
-.section-text{
-
-    text-align:center;
-
-    max-width:700px;
-
-    margin:auto;
-
-    color:#999;
-
-    line-height:1.8;
-
-    font-size:18px;
-
-}
-
-
-
-/* FEATURE CARDS */
-
-
-.features{
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:25px;
-
-    margin-top:60px;
-
-}
-
-
-
-.card{
-
-    background:#0b0b0b;
-
-    border:1px solid #222;
-
-    padding:35px;
-
-    border-radius:24px;
-
-    transition:.35s;
-
-}
-
-
-
-.card:hover{
-
-    border-color:#fff;
-
-    transform:translateY(-8px);
-
-}
-
-
-
-.card h3{
-
-    font-size:22px;
-
-    margin-bottom:15px;
-
-}
-
-
-
-.card p{
-
-    color:#999;
-
-    line-height:1.7;
-
-}
-
-
-
-
-
-/* MODES */
-
-
-.modes{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    justify-content:center;
-
-    gap:15px;
-
-    margin-top:50px;
-
-}
-
-
-
-.mode{
-
-    border:1px solid #333;
-
-    padding:14px 24px;
-
-    border-radius:40px;
-
-    color:#ddd;
-
-    transition:.3s;
-
-}
-
-
-
-.mode:hover{
-
-    background:#fff;
-
-    color:#000;
-
-}
-
-
-
-/* LARGE QUOTE */
-
-
-.quote{
-
-    text-align:center;
-
-    font-size:clamp(32px,6vw,70px);
-
-    font-weight:900;
-
-    line-height:1.15;
-
-    padding:120px 0;
-
-    letter-spacing:-2px;
-
-}
-
-
-
-
-
-/* PRODUCT STORY */
-
-
-.story{
-
-    background:#050505;
-
-    border-top:1px solid #111;
-
-    border-bottom:1px solid #111;
-
-}
-
-
-
-.story-box{
-
-    max-width:850px;
-
-    margin:auto;
-
-    text-align:center;
-
-}
-
-
-
-.story-box h2{
-
-    font-size:clamp(35px,5vw,60px);
-
-    margin-bottom:40px;
-
-}
-
-
-
-.story-box p{
-
-    color:#aaa;
-
-    font-size:22px;
-
-    line-height:1.8;
-
-}
-
-
-
-
-
-/* SPECIFICATIONS */
-
-
-.spec-list{
-
-    max-width:600px;
-
-    margin:60px auto;
-
-}
-
-
-
-.spec{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    padding:22px 0;
-
-    border-bottom:1px solid #222;
-
-    color:#ddd;
-
-}
-
-
-
-.spec span:first-child{
-
-    color:#fff;
-
-}
-
-
-
-.spec span:last-child{
-
-    color:#888;
-
-}
-
-
-
-
-/* CTA */
-
-
-.cta{
-
-    text-align:center;
-
-    padding:120px 20px;
-
-}
-
-
-
-.cta h2{
-
-    font-size:clamp(40px,6vw,75px);
-
-    font-weight:900;
-
-}
-
-
-
-.cta p{
-
-    color:#888;
-
-    margin:25px auto;
-
-    font-size:20px;
-
-}
-
-
-
-
-
-/* FOOTER */
-
-
-footer{
-
-    border-top:1px solid #151515;
-
-    text-align:center;
-
-    padding:70px 20px;
-
-    color:#777;
-
-}
-
-
-
-footer strong{
-
-    display:block;
-
-    color:#fff;
-
-    font-size:22px;
-
-    letter-spacing:5px;
-
-    margin-bottom:20px;
-
-}
-
-
-
-
-/* MOBILE */
-
-
-@media(max-width:900px){
-
-
-    nav{
-
-        padding:0 25px;
-
-    }
-
-
-    .features{
-
-        grid-template-columns:1fr;
-
-    }
-
-
-    section{
-
-        width:90%;
-
-        padding:70px 0;
-
-    }
-
-
-    .product-stage{
-
-        transform:scale(.85);
-
-        margin:60px auto;
-
-    }
-
-
-}
-
-
-
-@media(max-width:500px){
-
-
-    .hero h1{
-
-        letter-spacing:-2px;
-
-    }
-
-
-    .product-stage{
-
-        transform:scale(.72);
-
-        height:350px;
-
-    }
-
-
-    .hero p{
-
-        font-size:17px;
-
-    }
-
-
-    .card{
-
-        padding:25px;
-
-    }
-
-
-    .spec{
-
-        flex-direction:column;
-
-        gap:8px;
-
-    }
-
-
-}
-</style>
-
 </head>
 
+
 <body>
+
+
 
 <nav>
 
 <div class="logo">
 DOOMLOCK
 </div>
+
 
 <a class="nav-link" href="#why">
 THE ANTI-APP
@@ -1186,40 +645,71 @@ THE ANTI-APP
 </nav>
 
 
-<!-- HERO SECTION -->
+
+
+
+
+<!-- HERO -->
+
 
 <section class="hero">
 
-<small>DOOMLOCK</small>
+
+<small>
+DOOMLOCK
+</small>
+
 
 <h1>
 The world's first<br>
 analog screen-time app.
 </h1>
 
+
+
 <p>
-A thumb resistance band that plugs into your phone.
+A USB-C resistance loop that physically fights your scrolling habit.
 Every swipe requires commitment.
-Every scroll becomes a choice.
 </p>
 
 
-<div class="product-stage patent-view">
 
-    <!-- PHONE BODY -->
+
+
+
+<!-- PATENT PRODUCT DIAGRAM -->
+
+
+<div class="patent-view">
+
+
+
+    <!-- PHONE -->
+
 
     <div class="patent-phone">
 
-        <div class="screen">
+
+        <div class="patent-screen">
+
 
             <div class="screen-line"></div>
+
             <div class="screen-line"></div>
+
             <div class="screen-line"></div>
+
+
+
+            <div class="thumb-indicator">
+                SCROLL AREA
+            </div>
+
 
         </div>
 
 
-        <!-- USB C PORT -->
+
 
         <div class="usb-port"></div>
 
@@ -1228,43 +718,71 @@ Every scroll becomes a choice.
 
 
 
-    <!-- USB C ADAPTER -->
+
+
+
+
+    <!-- USB-C MODULE -->
+
 
     <div class="usb-adapter">
 
+
         <div class="adapter-label">
+
             102
+
         </div>
 
+
     </div>
+
+
+
+
 
 
 
     <!-- SILICONE LOOP -->
 
+
     <div class="silicone-loop">
 
+
         <div class="loop-label">
+
             103
+
         </div>
 
+
     </div>
+
+
+
+
 
 
 
     <!-- HAND -->
 
+
     <div class="hand">
+
 
         <div class="thumb">
 
+
             <div class="thumb-loop">
+
 
                 <span>
                     104
                 </span>
 
+
             </div>
+
 
         </div>
 
@@ -1274,38 +792,67 @@ Every scroll becomes a choice.
 
 
 
-    <!-- PATENT CALLOUTS -->
+
+
+
+    <!-- TECH LABELS -->
 
 
     <div class="callout phone-callout">
+
         105<br>
-        Mobile Device
+        MOBILE DEVICE
+
     </div>
+
+
 
 
     <div class="callout usb-callout">
+
         101<br>
-        USB-C Interface
+        USB-C INTERFACE
+
     </div>
+
+
 
 
     <div class="callout band-callout">
+
         103<br>
-        4mm Silicone Resistance Band
+        4MM SILICONE<br>
+        RESISTANCE LOOP
+
     </div>
+
+
 
 
     <div class="callout thumb-callout">
+
         106<br>
-        Thumb Engagement Area
+        THUMB<br>
+        ENGAGEMENT AREA
+
     </div>
+
 
 
 </div>
 
+
+
+
+
+
+
 <button class="btn" onclick="notifyUser()">
+
 Notify Me
+
 </button>
+
 
 
 </section>
@@ -1313,77 +860,115 @@ Notify Me
 
 
 
-<!-- WHY DOOMLOCK -->
+
+
+
+
+
+<!-- WHY SECTION -->
+
 
 <section id="why">
 
+
 <h2 class="section-title">
+
 Why DoomLock?
+
 </h2>
+
 
 
 <p class="section-text">
 
-Infinite scrolling succeeds because it is effortless.
-DoomLock adds just enough friction to make your brain notice.
+Infinite scrolling wins because it has zero friction.
+DoomLock adds a tiny physical pause between impulse and action.
 
 </p>
+
+
+
 
 
 
 <div class="features">
 
 
+
 <div class="card">
+
 
 <h3>
 🧠 Conscious Scrolling
 </h3>
 
+
 <p>
+
 The only screen-time tool you can actually feel.
-Every swipe becomes a decision.
+Every swipe becomes a choice.
+
 </p>
+
 
 </div>
 
 
 
+
+
+
 <div class="card">
+
 
 <h3>
 💪 Accidental Training
 </h3>
 
+
 <p>
+
 NASA-inspired thumb tension technology.
-Build strength while wasting time.
+Build strength while scrolling.
+
 </p>
 
+
 </div>
+
+
+
 
 
 
 <div class="card">
 
+
 <h3>
 🔋 Zero Technology
 </h3>
 
+
 <p>
-Battery-free.
-AI-free.
-Bluetooth-free.
+
+Battery-free.<br>
+AI-free.<br>
+Bluetooth-free.<br>
 Subscription-free.
+
 </p>
 
+
 </div>
+
 
 
 </div>
 
 
 </section>
+
+
 
 
 
@@ -1392,17 +977,24 @@ Subscription-free.
 
 <!-- MODES -->
 
+
 <section>
 
 
 <h2 class="section-title">
+
 Resistance Modes
+
 </h2>
 
 
 <p class="section-text">
-Choose your level of digital dependency.
+
+Professional resistance levels for every type of doomscrolling.
+
 </p>
+
+
 
 
 
@@ -1437,6 +1029,7 @@ Breakup Mode
 </div>
 
 
+
 </section>
 
 
@@ -1445,8 +1038,8 @@ Breakup Mode
 
 
 
+<!-- SATIRICAL PACKAGING -->
 
-<!-- PACKAGING COPY -->
 
 <section class="story">
 
@@ -1455,8 +1048,11 @@ Breakup Mode
 
 
 <h2>
+
 Congratulations.
+
 </h2>
+
 
 
 <p>
@@ -1465,13 +1061,16 @@ Your screen-time app clearly wasn't enough.
 
 <br><br>
 
+
 So we added physical consequences.
 
 <br><br>
 
+
 Every swipe now requires commitment.
 
 <br><br>
+
 
 Scroll less.<br>
 
@@ -1482,27 +1081,24 @@ Accidentally get a stronger thumb.
 </p>
 
 
+
 </div>
 
 
 </section>
-
-
-
-
-
-
-
-
-<!-- PRODUCT SPECS -->
+<!-- PRODUCT SPECIFICATIONS -->
 
 
 <section>
 
 
 <h2 class="section-title">
+
 Premium Engineering
+
 </h2>
+
+
 
 
 <div class="spec-list">
@@ -1576,7 +1172,7 @@ Subscription
 </span>
 
 <span>
-$0 forever
+Never
 </span>
 
 </div>
@@ -1602,11 +1198,11 @@ Compatibility
 <div class="spec">
 
 <span>
-Approval
+Medical Status
 </span>
 
 <span>
-Recommended by absolutely nobody
+Recommended by absolutely no therapists
 </span>
 
 </div>
@@ -1624,30 +1220,37 @@ Recommended by absolutely nobody
 
 
 
-
-<!-- FINAL CTA -->
+<!-- CTA -->
 
 
 <section class="cta">
 
 
 <h2>
+
 Stop Doomscrolling.
+
 </h2>
 
 
+
 <p>
+
 Because self-control needed hardware.
+
 </p>
 
 
+
 <button class="btn" onclick="notifyUser()">
+
 Join Waiting List
+
 </button>
 
 
-</section>
 
+</section>
 
 
 
@@ -1664,7 +1267,9 @@ DOOMLOCK
 
 
 <p>
+
 The world's first analog screen-time app.
+
 </p>
 
 
@@ -1672,8 +1277,11 @@ The world's first analog screen-time app.
 
 
 <p>
+
 Scroll less.<br>
+
 Think more.
+
 </p>
 
 
@@ -1681,7 +1289,9 @@ Think more.
 
 
 <p>
+
 © 2026 DoomLock
+
 </p>
 
 
@@ -1693,79 +1303,393 @@ Think more.
 
 
 
+<style>
+
+
+/* LOWER PAGE COMPONENTS */
+
+
+section{
+
+    width:min(1200px,90%);
+
+    margin:auto;
+
+    padding:100px 0;
+
+}
+
+
+
+.section-title{
+
+    text-align:center;
+
+    font-size:clamp(36px,5vw,60px);
+
+    font-weight:900;
+
+    letter-spacing:-2px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.section-text{
+
+    text-align:center;
+
+    max-width:700px;
+
+    margin:auto;
+
+    color:#999;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+}
+
+
+
+
+
+.features{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+    margin-top:60px;
+
+}
+
+
+
+.card{
+
+    background:#0b0b0b;
+
+    border:1px solid #222;
+
+    padding:35px;
+
+    border-radius:24px;
+
+}
+
+
+
+.card h3{
+
+    margin-bottom:15px;
+
+}
+
+
+
+.card p{
+
+    color:#999;
+
+    line-height:1.7;
+
+}
+
+
+
+
+
+
+.modes{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin-top:50px;
+
+}
+
+
+
+.mode{
+
+    border:1px solid #333;
+
+    padding:15px 25px;
+
+    border-radius:50px;
+
+    color:#aaa;
+
+}
+
+
+
+
+
+.story{
+
+    background:#050505;
+
+    border-top:1px solid #222;
+
+    border-bottom:1px solid #222;
+
+}
+
+
+
+.story-box{
+
+    max-width:850px;
+
+    margin:auto;
+
+    text-align:center;
+
+}
+
+
+
+.story-box h2{
+
+    font-size:clamp(40px,6vw,70px);
+
+}
+
+
+
+.story-box p{
+
+    margin-top:40px;
+
+    color:#aaa;
+
+    font-size:22px;
+
+    line-height:1.8;
+
+}
+
+
+
+
+
+
+
+.spec-list{
+
+    max-width:650px;
+
+    margin:60px auto;
+
+}
+
+
+
+.spec{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:22px 0;
+
+    border-bottom:1px solid #222;
+
+}
+
+
+
+.spec span:last-child{
+
+    color:#777;
+
+}
+
+
+
+
+
+.cta{
+
+    text-align:center;
+
+    padding:130px 20px;
+
+}
+
+
+
+.cta h2{
+
+    font-size:clamp(45px,7vw,80px);
+
+    font-weight:900;
+
+}
+
+
+
+.cta p{
+
+    color:#888;
+
+    font-size:20px;
+
+    margin:25px;
+
+}
+
+
+
+
+
+footer{
+
+    border-top:1px solid #222;
+
+    text-align:center;
+
+    padding:70px 20px;
+
+    color:#777;
+
+}
+
+
+
+footer strong{
+
+    display:block;
+
+    color:white;
+
+    letter-spacing:6px;
+
+    font-size:24px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+
+
+
+
+/* MOBILE */
+
+
+@media(max-width:900px){
+
+
+.features{
+
+    grid-template-columns:1fr;
+
+}
+
+
+.patent-view{
+
+    transform:scale(.75);
+
+    margin-left:-45px;
+
+}
+
+
+}
+
+
+
+
+@media(max-width:500px){
+
+
+.hero h1{
+
+    letter-spacing:-2px;
+
+}
+
+
+
+.patent-view{
+
+    transform:scale(.62);
+
+    height:420px;
+
+}
+
+
+.hero p{
+
+    font-size:17px;
+
+}
+
+
+.spec{
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+
+}
+
+
+
+
+
+</style>
+
+
+
+
+
+
+
 <script>
+
 
 
 function notifyUser(){
 
+
 alert(
+
 "🚀 DoomLock is coming soon.\n\nYour thumb has been notified."
+
 );
-
-}
-
-
-
-
-/* Scroll animation */
-
-const revealItems = document.querySelectorAll(
-".card, .mode, .spec, .story-box"
-);
-
-
-
-const revealObserver = new IntersectionObserver(
-
-(entries)=>{
-
-
-entries.forEach(entry=>{
-
-
-if(entry.isIntersecting){
-
-
-entry.target.style.opacity="1";
-
-entry.target.style.transform="translateY(0)";
 
 
 }
 
 
-});
-
-
-},
-
-{
-threshold:0.15
-}
-
-);
-
-
-
-
-revealItems.forEach(item=>{
-
-
-item.style.opacity="0";
-
-item.style.transform="translateY(40px)";
-
-item.style.transition="all .8s ease";
-
-
-revealObserver.observe(item);
-
-
-});
 
 
 
 </script>
+
+
 
 
 </body>
