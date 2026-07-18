@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -8,108 +7,60 @@
 
 <title>DoomLock — The Analog Screen-Time App</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
 
 <style>
 
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 
 html{
-    scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 
 body{
-
-    background:#000;
-
-    color:#fff;
-
-    font-family:'Inter',sans-serif;
-
-    overflow-x:hidden;
-
+background:#000;
+color:#fff;
+font-family:'Inter',sans-serif;
+overflow-x:hidden;
 }
-
-
-::selection{
-
-    background:#fff;
-
-    color:#000;
-
-}
-
-
-
-/* NAV */
 
 
 nav{
-
-    position:fixed;
-
-    top:0;
-
-    left:0;
-
-    right:0;
-
-    height:80px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:0 5%;
-
-    background:rgba(0,0,0,.75);
-
-    backdrop-filter:blur(20px);
-
-    border-bottom:1px solid #222;
-
-    z-index:1000;
-
+position:fixed;
+top:0;
+left:0;
+right:0;
+height:80px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 6%;
+background:rgba(0,0,0,.8);
+backdrop-filter:blur(20px);
+border-bottom:1px solid #222;
+z-index:1000;
 }
-
 
 
 .logo{
-
-    font-size:22px;
-
-    font-weight:900;
-
-    letter-spacing:6px;
-
+font-size:22px;
+font-weight:900;
+letter-spacing:6px;
 }
-
 
 
 .nav-link{
-
-    color:#888;
-
-    text-decoration:none;
-
-    font-size:14px;
-
+color:#888;
+text-decoration:none;
+font-size:14px;
 }
-
-
 
 
 
@@ -120,61 +71,43 @@ nav{
 
 .hero{
 
-    min-height:100vh;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    padding:130px 20px 50px;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:130px 20px 50px;
 
 }
-
 
 
 .hero small{
 
-    color:#777;
-
-    letter-spacing:8px;
+letter-spacing:8px;
+color:#777;
 
 }
-
 
 
 .hero h1{
 
-    margin-top:30px;
-
-    font-size:clamp(45px,8vw,95px);
-
-    line-height:.95;
-
-    letter-spacing:-5px;
-
-    font-weight:900;
+font-size:clamp(45px,8vw,90px);
+font-weight:900;
+line-height:.95;
+letter-spacing:-5px;
+margin-top:30px;
 
 }
-
 
 
 .hero p{
 
-    max-width:650px;
-
-    margin-top:30px;
-
-    color:#999;
-
-    font-size:22px;
-
-    line-height:1.6;
+max-width:650px;
+font-size:22px;
+line-height:1.6;
+color:#999;
+margin-top:30px;
 
 }
 
@@ -182,48 +115,28 @@ nav{
 
 
 
-
-
-
-/* PATENT PRODUCT VIEW */
+/* PATENT PRODUCT */
 
 
 .patent-view{
 
-    position:relative;
+position:relative;
+width:520px;
+height:600px;
+margin:80px auto;
 
-    width:520px;
-
-    height:600px;
-
-    margin:80px auto;
-
-    animation:floatPatent 6s ease-in-out infinite;
+animation:float 6s ease-in-out infinite;
 
 }
 
 
+@keyframes float{
 
-@keyframes floatPatent{
-
-
-    0%,100%{
-
-        transform:translateY(0);
-
-    }
-
-
-    50%{
-
-        transform:translateY(-12px);
-
-    }
-
-
+50%{
+transform:translateY(-12px);
 }
 
-
+}
 
 
 
@@ -232,84 +145,39 @@ nav{
 /* PHONE */
 
 
-.patent-phone{
+.phone-body{
 
-
-    position:absolute;
-
-    left:150px;
-
-    top:40px;
-
-    width:230px;
-
-    height:450px;
-
-    background:#fff;
-
-    border:5px solid #111;
-
-    border-radius:40px;
-
-    box-shadow:
-
-    0 40px 100px rgba(255,255,255,.12);
-
+position:absolute;
+left:150px;
+top:40px;
+width:230px;
+height:450px;
+background:#fff;
+border:5px solid #111;
+border-radius:40px;
 
 }
 
 
 
-.patent-screen{
+.phone-screen{
 
-
-    position:absolute;
-
-    inset:18px;
-
-    background:#000;
-
-    border-radius:28px;
-
-    overflow:hidden;
-
+position:absolute;
+inset:18px;
+background:#000;
+border-radius:28px;
+overflow:hidden;
 
 }
 
 
 
-.screen-line{
+.feed-line{
 
-
-    height:45px;
-
-    background:#222;
-
-    margin:25px 18px;
-
-    border-radius:8px;
-
-
-}
-
-
-
-.thumb-indicator{
-
-
-    position:absolute;
-
-    bottom:50px;
-
-    right:20px;
-
-    color:#fff;
-
-    font-size:10px;
-
-    border:1px solid #555;
-
-    padding:8px;
+height:45px;
+background:#222;
+margin:25px 18px;
+border-radius:8px;
 
 }
 
@@ -317,74 +185,34 @@ nav{
 
 
 
-
-
-/* USB C PORT */
+/* USB C */
 
 
 .usb-port{
 
-
-    position:absolute;
-
-    bottom:-10px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:50px;
-
-    height:12px;
-
-    background:#111;
-
-    border-radius:8px;
-
+position:absolute;
+bottom:-12px;
+left:50%;
+transform:translateX(-50%);
+width:50px;
+height:12px;
+background:#111;
+border-radius:8px;
 
 }
 
-
-
-
-
-
-
-/* ADAPTER */
 
 
 .usb-adapter{
 
-
-    position:absolute;
-
-    top:480px;
-
-    left:238px;
-
-    width:55px;
-
-    height:70px;
-
-    background:#fff;
-
-    border:4px solid #111;
-
-    border-radius:10px;
-
-
-}
-
-
-.adapter-label{
-
-    position:absolute;
-
-    right:-45px;
-
-    top:20px;
-
-    font-size:12px;
+position:absolute;
+top:480px;
+left:238px;
+width:55px;
+height:70px;
+background:white;
+border:4px solid #111;
+border-radius:10px;
 
 }
 
@@ -392,46 +220,19 @@ nav{
 
 
 
+/* RUBBER LOOP */
 
 
+.resistance-loop{
 
-/* SILICONE LOOP */
-
-
-.silicone-loop{
-
-
-    position:absolute;
-
-    top:500px;
-
-    left:285px;
-
-    width:170px;
-
-    height:120px;
-
-    border:8px solid #fff;
-
-    border-radius:100px;
-
-    transform:rotate(25deg);
-
-
-}
-
-
-
-.loop-label{
-
-
-    position:absolute;
-
-    right:-45px;
-
-    top:45px;
-
-    font-size:12px;
+position:absolute;
+top:500px;
+left:290px;
+width:170px;
+height:120px;
+border:8px solid white;
+border-radius:100px;
+transform:rotate(25deg);
 
 }
 
@@ -439,87 +240,45 @@ nav{
 
 
 
-
-
-/* HAND */
+/* HAND + THUMB */
 
 
 .hand{
 
-
-    position:absolute;
-
-    right:25px;
-
-    bottom:40px;
-
-    width:150px;
-
-    height:230px;
-
-    background:#222;
-
-    border-radius:80px 80px 30px 30px;
-
+position:absolute;
+right:20px;
+bottom:50px;
+width:150px;
+height:230px;
+background:#222;
+border-radius:80px 80px 30px 30px;
 
 }
-
 
 
 .thumb{
 
-
-    position:absolute;
-
-    left:-45px;
-
-    top:35px;
-
-    width:75px;
-
-    height:150px;
-
-    background:#333;
-
-    border-radius:50px;
-
+position:absolute;
+left:-45px;
+top:40px;
+width:75px;
+height:150px;
+background:#333;
+border-radius:50px;
 
 }
 
 
 
+.thumb-ring{
 
-.thumb-loop{
-
-
-    position:absolute;
-
-    top:45px;
-
-    left:-15px;
-
-    width:95px;
-
-    height:95px;
-
-    border:6px solid #fff;
-
-    border-radius:50%;
-
-
-}
-
-
-
-.thumb-loop span{
-
-    position:absolute;
-
-    right:-35px;
-
-    top:35px;
-
-    font-size:12px;
+position:absolute;
+top:45px;
+left:-10px;
+width:95px;
+height:95px;
+border:6px solid white;
+border-radius:50%;
 
 }
 
@@ -528,62 +287,49 @@ nav{
 
 
 
-/* CALLOUTS */
+/* LABELS */
 
 
-.callout{
+.label{
 
-
-    position:absolute;
-
-    color:#999;
-
-    font-size:13px;
-
-    line-height:1.5;
+position:absolute;
+color:#999;
+font-size:12px;
+line-height:1.5;
 
 }
 
 
+.label-phone{
 
-.phone-callout{
-
-    left:20px;
-
-    top:160px;
+left:20px;
+top:160px;
 
 }
 
 
+.label-usb{
 
-.usb-callout{
-
-    left:30px;
-
-    bottom:100px;
+left:40px;
+bottom:100px;
 
 }
 
 
+.label-band{
 
-.band-callout{
-
-    right:0;
-
-    top:500px;
+right:0;
+top:500px;
 
 }
 
 
+.label-thumb{
 
-.thumb-callout{
-
-    right:0;
-
-    bottom:100px;
+right:0;
+bottom:110px;
 
 }
-
 
 
 
@@ -594,41 +340,24 @@ nav{
 
 .btn{
 
-
-    margin-top:20px;
-
-    padding:18px 45px;
-
-    border:none;
-
-    border-radius:50px;
-
-    background:#fff;
-
-    color:#000;
-
-    font-size:16px;
-
-    font-weight:700;
-
-    cursor:pointer;
-
+margin-top:30px;
+padding:18px 45px;
+border:none;
+border-radius:50px;
+background:white;
+color:black;
+font-weight:700;
+font-size:16px;
+cursor:pointer;
 
 }
 
+</style>
 
-.btn:hover{
-
-
-    transform:translateY(-5px);
-
-
-}
 </head>
 
 
 <body>
-
 
 
 <nav>
@@ -638,18 +367,15 @@ DOOMLOCK
 </div>
 
 
-<a class="nav-link" href="#why">
+<a href="#why" class="nav-link">
 THE ANTI-APP
 </a>
+
 
 </nav>
 
 
 
-
-
-
-<!-- HERO -->
 
 
 <section class="hero">
@@ -676,171 +402,120 @@ Every swipe requires commitment.
 
 
 
-
-<!-- PATENT PRODUCT DIAGRAM -->
-
-
 <div class="patent-view">
 
 
+<!-- PHONE -->
 
-    <!-- PHONE -->
 
+<div class="phone-body">
 
-    <div class="patent-phone">
 
+<div class="phone-screen">
 
-        <div class="patent-screen">
 
+<div class="feed-line"></div>
 
-            <div class="screen-line"></div>
+<div class="feed-line"></div>
 
-            <div class="screen-line"></div>
-
-            <div class="screen-line"></div>
-
-
-
-            <div class="thumb-indicator">
-                SCROLL AREA
-            </div>
-
-
-        </div>
-
-
-
-
-        <div class="usb-port"></div>
-
-
-    </div>
-
-
-
-
-
-
-
-    <!-- USB-C MODULE -->
-
-
-    <div class="usb-adapter">
-
-
-        <div class="adapter-label">
-
-            102
-
-        </div>
-
-
-    </div>
-
-
-
-
-
-
-
-    <!-- SILICONE LOOP -->
-
-
-    <div class="silicone-loop">
-
-
-        <div class="loop-label">
-
-            103
-
-        </div>
-
-
-    </div>
-
-
-
-
-
-
-
-    <!-- HAND -->
-
-
-    <div class="hand">
-
-
-        <div class="thumb">
-
-
-            <div class="thumb-loop">
-
-
-                <span>
-                    104
-                </span>
-
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-
-
-
-
-
-
-
-    <!-- TECH LABELS -->
-
-
-    <div class="callout phone-callout">
-
-        105<br>
-        MOBILE DEVICE
-
-    </div>
-
-
-
-
-    <div class="callout usb-callout">
-
-        101<br>
-        USB-C INTERFACE
-
-    </div>
-
-
-
-
-    <div class="callout band-callout">
-
-        103<br>
-        4MM SILICONE<br>
-        RESISTANCE LOOP
-
-    </div>
-
-
-
-
-    <div class="callout thumb-callout">
-
-        106<br>
-        THUMB<br>
-        ENGAGEMENT AREA
-
-    </div>
-
+<div class="feed-line"></div>
 
 
 </div>
 
+
+<div class="usb-port"></div>
+
+
+</div>
+
+
+
+
+
+<!-- USB ADAPTER -->
+
+
+<div class="usb-adapter"></div>
+
+
+
+
+
+<!-- SILICONE LOOP -->
+
+
+<div class="resistance-loop"></div>
+
+
+
+
+
+
+<!-- HAND -->
+
+
+<div class="hand">
+
+
+<div class="thumb">
+
+
+<div class="thumb-ring"></div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<!-- PATENT LABELS -->
+
+
+<div class="label label-phone">
+
+105<br>
+MOBILE DEVICE
+
+</div>
+
+
+
+<div class="label label-usb">
+
+101<br>
+USB-C INTERFACE
+
+</div>
+
+
+
+<div class="label label-band">
+
+103<br>
+4MM SILICONE<br>
+RESISTANCE LOOP
+
+</div>
+
+
+
+<div class="label label-thumb">
+
+106<br>
+THUMB<br>
+ENGAGEMENT AREA
+
+</div>
+
+
+
+</div>
 
 
 
@@ -854,7 +529,6 @@ Notify Me
 </button>
 
 
-
 </section>
 
 
@@ -864,52 +538,39 @@ Notify Me
 
 
 
-
-<!-- WHY SECTION -->
-
-
 <section id="why">
 
 
-<h2 class="section-title">
+<h2 class="title">
 
 Why DoomLock?
 
 </h2>
 
 
+<p class="description">
 
-<p class="section-text">
-
-Infinite scrolling wins because it has zero friction.
-DoomLock adds a tiny physical pause between impulse and action.
+Infinite scrolling works because it has zero friction.
+DoomLock adds a physical pause between impulse and action.
 
 </p>
 
 
 
 
-
-
-<div class="features">
+<div class="cards">
 
 
 
 <div class="card">
-
 
 <h3>
 🧠 Conscious Scrolling
 </h3>
 
-
 <p>
-
 The only screen-time tool you can actually feel.
-Every swipe becomes a choice.
-
 </p>
-
 
 </div>
 
@@ -917,22 +578,15 @@ Every swipe becomes a choice.
 
 
 
-
 <div class="card">
-
 
 <h3>
-💪 Accidental Training
+💪 Accidental Fitness
 </h3>
 
-
 <p>
-
-NASA-inspired thumb tension technology.
-Build strength while scrolling.
-
+Clinically engineered to question your life choices.
 </p>
-
 
 </div>
 
@@ -940,24 +594,17 @@ Build strength while scrolling.
 
 
 
-
 <div class="card">
-
 
 <h3>
 🔋 Zero Technology
 </h3>
 
-
 <p>
-
 Battery-free.<br>
 AI-free.<br>
-Bluetooth-free.<br>
-Subscription-free.
-
+Bluetooth-free.
 </p>
-
 
 </div>
 
@@ -975,53 +622,40 @@ Subscription-free.
 
 
 
-<!-- MODES -->
-
-
 <section>
 
 
-<h2 class="section-title">
+<h2 class="title">
 
 Resistance Modes
 
 </h2>
 
 
-<p class="section-text">
-
-Professional resistance levels for every type of doomscrolling.
-
-</p>
-
-
-
-
-
 <div class="modes">
 
 
-<div class="mode">
+<div>
 Casual Reddit
 </div>
 
 
-<div class="mode">
+<div>
 Instagram Athlete
 </div>
 
 
-<div class="mode">
+<div>
 TikTok Addiction
 </div>
 
 
-<div class="mode">
+<div>
 Election Season
 </div>
 
 
-<div class="mode">
+<div>
 Breakup Mode
 </div>
 
@@ -1029,7 +663,6 @@ Breakup Mode
 </div>
 
 
-
 </section>
 
 
@@ -1038,21 +671,14 @@ Breakup Mode
 
 
 
-<!-- SATIRICAL PACKAGING -->
 
 
 <section class="story">
 
 
-<div class="story-box">
-
-
 <h2>
-
 Congratulations.
-
 </h2>
-
 
 
 <p>
@@ -1061,38 +687,34 @@ Your screen-time app clearly wasn't enough.
 
 <br><br>
 
-
 So we added physical consequences.
 
 <br><br>
-
 
 Every swipe now requires commitment.
 
 <br><br>
 
-
 Scroll less.<br>
-
 Think more.<br>
-
 Accidentally get a stronger thumb.
 
 </p>
 
 
-
-</div>
-
-
 </section>
-<!-- PRODUCT SPECIFICATIONS -->
+
+
+
+
+
+
 
 
 <section>
 
 
-<h2 class="section-title">
+<h2 class="title">
 
 Premium Engineering
 
@@ -1101,111 +723,59 @@ Premium Engineering
 
 
 
-<div class="spec-list">
-
-
-
 <div class="spec">
 
-<span>
-Material
-</span>
 
+<p>
+Material
 <span>
 Military-grade silicone
 </span>
-
-</div>
-
+</p>
 
 
-
-<div class="spec">
-
-<span>
+<p>
 Connection
-</span>
-
 <span>
 USB-C attachment
 </span>
-
-</div>
-
+</p>
 
 
 
-<div class="spec">
-
-<span>
+<p>
 Power
-</span>
-
 <span>
 Battery-free
 </span>
-
-</div>
-
+</p>
 
 
 
-<div class="spec">
-
-<span>
+<p>
 Wireless
-</span>
-
 <span>
 Bluetooth-free
 </span>
-
-</div>
-
+</p>
 
 
 
-<div class="spec">
-
-<span>
+<p>
 Subscription
-</span>
-
 <span>
 Never
 </span>
-
-</div>
-
+</p>
 
 
 
-<div class="spec">
-
-<span>
+<p>
 Compatibility
-</span>
-
 <span>
 100% compatible with guilt
 </span>
-
-</div>
-
-
-
-
-<div class="spec">
-
-<span>
-Medical Status
-</span>
-
-<span>
-Recommended by absolutely no therapists
-</span>
-
-</div>
+</p>
 
 
 
@@ -1220,26 +790,18 @@ Recommended by absolutely no therapists
 
 
 
-<!-- CTA -->
-
 
 <section class="cta">
 
 
 <h2>
-
 Stop Doomscrolling.
-
 </h2>
 
 
-
 <p>
-
 Because self-control needed hardware.
-
 </p>
-
 
 
 <button class="btn" onclick="notifyUser()">
@@ -1247,7 +809,6 @@ Because self-control needed hardware.
 Join Waiting List
 
 </button>
-
 
 
 </section>
@@ -1267,9 +828,7 @@ DOOMLOCK
 
 
 <p>
-
 The world's first analog screen-time app.
-
 </p>
 
 
@@ -1277,11 +836,7 @@ The world's first analog screen-time app.
 
 
 <p>
-
-Scroll less.<br>
-
-Think more.
-
+Scroll less. Think more.
 </p>
 
 
@@ -1289,9 +844,7 @@ Think more.
 
 
 <p>
-
 © 2026 DoomLock
-
 </p>
 
 
@@ -1306,50 +859,36 @@ Think more.
 <style>
 
 
-/* LOWER PAGE COMPONENTS */
+.title{
+
+text-align:center;
+font-size:clamp(35px,5vw,60px);
+font-weight:900;
+margin-bottom:30px;
+
+}
+
+
+
+.description{
+
+max-width:700px;
+margin:auto;
+text-align:center;
+color:#999;
+line-height:1.8;
+font-size:18px;
+
+}
+
+
 
 
 section{
 
-    width:min(1200px,90%);
-
-    margin:auto;
-
-    padding:100px 0;
-
-}
-
-
-
-.section-title{
-
-    text-align:center;
-
-    font-size:clamp(36px,5vw,60px);
-
-    font-weight:900;
-
-    letter-spacing:-2px;
-
-    margin-bottom:25px;
-
-}
-
-
-
-.section-text{
-
-    text-align:center;
-
-    max-width:700px;
-
-    margin:auto;
-
-    color:#999;
-
-    font-size:18px;
-
-    line-height:1.8;
+width:min(1200px,90%);
+margin:auto;
+padding:100px 0;
 
 }
 
@@ -1357,15 +896,12 @@ section{
 
 
 
-.features{
+.cards{
 
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:25px;
-
-    margin-top:60px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+margin-top:60px;
 
 }
 
@@ -1373,34 +909,21 @@ section{
 
 .card{
 
-    background:#0b0b0b;
-
-    border:1px solid #222;
-
-    padding:35px;
-
-    border-radius:24px;
+background:#0b0b0b;
+border:1px solid #222;
+padding:35px;
+border-radius:25px;
 
 }
-
-
-
-.card h3{
-
-    margin-bottom:15px;
-
-}
-
 
 
 .card p{
 
-    color:#999;
-
-    line-height:1.7;
+color:#999;
+margin-top:15px;
+line-height:1.7;
 
 }
-
 
 
 
@@ -1408,29 +931,19 @@ section{
 
 .modes{
 
-    display:flex;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:15px;
-
-    margin-top:50px;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
 
 }
 
 
+.modes div{
 
-.mode{
-
-    border:1px solid #333;
-
-    padding:15px 25px;
-
-    border-radius:50px;
-
-    color:#aaa;
+border:1px solid #333;
+padding:15px 25px;
+border-radius:50px;
 
 }
 
@@ -1440,81 +953,56 @@ section{
 
 .story{
 
-    background:#050505;
+text-align:center;
+background:#050505;
+border-top:1px solid #222;
+border-bottom:1px solid #222;
 
-    border-top:1px solid #222;
+}
 
-    border-bottom:1px solid #222;
+
+.story h2{
+
+font-size:60px;
+font-weight:900;
 
 }
 
 
 
-.story-box{
+.story p{
 
-    max-width:850px;
-
-    margin:auto;
-
-    text-align:center;
-
-}
-
-
-
-.story-box h2{
-
-    font-size:clamp(40px,6vw,70px);
+margin-top:40px;
+font-size:22px;
+line-height:1.8;
+color:#999;
 
 }
 
-
-
-.story-box p{
-
-    margin-top:40px;
-
-    color:#aaa;
-
-    font-size:22px;
-
-    line-height:1.8;
-
-}
-
-
-
-
-
-
-
-.spec-list{
-
-    max-width:650px;
-
-    margin:60px auto;
-
-}
 
 
 
 .spec{
 
-    display:flex;
-
-    justify-content:space-between;
-
-    padding:22px 0;
-
-    border-bottom:1px solid #222;
+max-width:650px;
+margin:auto;
 
 }
 
 
+.spec p{
 
-.spec span:last-child{
+display:flex;
+justify-content:space-between;
+border-bottom:1px solid #222;
+padding:20px 0;
 
-    color:#777;
+}
+
+
+.spec span{
+
+color:#888;
 
 }
 
@@ -1524,31 +1012,23 @@ section{
 
 .cta{
 
-    text-align:center;
-
-    padding:130px 20px;
+text-align:center;
 
 }
-
 
 
 .cta h2{
 
-    font-size:clamp(45px,7vw,80px);
-
-    font-weight:900;
+font-size:clamp(45px,7vw,80px);
+font-weight:900;
 
 }
 
 
-
 .cta p{
 
-    color:#888;
-
-    font-size:20px;
-
-    margin:25px;
+color:#999;
+margin:25px;
 
 }
 
@@ -1558,13 +1038,10 @@ section{
 
 footer{
 
-    border-top:1px solid #222;
-
-    text-align:center;
-
-    padding:70px 20px;
-
-    color:#777;
+text-align:center;
+padding:70px 20px;
+border-top:1px solid #222;
+color:#777;
 
 }
 
@@ -1572,15 +1049,11 @@ footer{
 
 footer strong{
 
-    display:block;
-
-    color:white;
-
-    letter-spacing:6px;
-
-    font-size:24px;
-
-    margin-bottom:20px;
+display:block;
+font-size:24px;
+letter-spacing:6px;
+color:white;
+margin-bottom:20px;
 
 }
 
@@ -1588,73 +1061,70 @@ footer strong{
 
 
 
-
-
-/* MOBILE */
 
 
 @media(max-width:900px){
 
 
-.features{
+.cards{
 
-    grid-template-columns:1fr;
+grid-template-columns:1fr;
 
 }
+
 
 
 .patent-view{
 
-    transform:scale(.75);
+transform:scale(.75);
 
-    margin-left:-45px;
-
-}
-
+margin-left:-40px;
 
 }
 
+
+}
 
 
 
 @media(max-width:500px){
 
 
-.hero h1{
-
-    letter-spacing:-2px;
-
-}
-
-
-
 .patent-view{
 
-    transform:scale(.62);
+transform:scale(.6);
 
-    height:420px;
+height:400px;
 
 }
+
+
+
+.hero h1{
+
+letter-spacing:-2px;
+
+}
+
 
 
 .hero p{
 
-    font-size:17px;
+font-size:17px;
 
 }
 
 
-.spec{
 
-    flex-direction:column;
+.spec p{
 
-    gap:8px;
-
-}
-
+flex-direction:column;
+gap:10px;
 
 }
 
+
+}
 
 
 
@@ -1670,25 +1140,16 @@ footer strong{
 <script>
 
 
-
 function notifyUser(){
 
-
 alert(
-
 "🚀 DoomLock is coming soon.\n\nYour thumb has been notified."
-
 );
-
 
 }
 
 
-
-
-
 </script>
-
 
 
 
